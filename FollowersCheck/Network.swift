@@ -8,19 +8,6 @@
 
 import Alamofire
 
-class User: Hashable{
-    var username = ""
-    var id = 0
-    
-    var hashValue: Int {
-        return id.hashValue
-    }
-    
-    static func ==(lhs: User, rhs: User) -> Bool {
-        return lhs.id == rhs.id
-    }
-}
-
 func getFollowers() {
     Alamofire.request(String(format: "%@self/followed-by?access_token=%@", arguments: [InstagramAPI.INSTAGRAM_APIURl,InstagramAPI.access_token]), method: .get).responseJSON{ response in
         if let responseJSON = response.result.value as? [String: AnyObject] {
@@ -43,7 +30,6 @@ func createSet(json: DataResponse<Any>) -> Set<User>{
             var user = User()
             let buf = item as! [String: AnyObject]
             user.username = buf["username"] as! String
-            user.id = buf["id"] as! Int
             set.insert(user)
         }
     }
