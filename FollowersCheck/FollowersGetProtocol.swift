@@ -22,7 +22,7 @@ class User: Hashable{
     }
 }
 
-protocol  followersGetProtocol {
+protocol  FollowersGetProtocol {
     static func getFollowers() -> Set<User>
     static func getFollowedByYou() -> Set<User>
 }
