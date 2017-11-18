@@ -8,7 +8,7 @@
 
 import Alamofire
 
-func getFollowers() {
+/*func getFollowers() {
     Alamofire.request(String(format: "%@self/followed-by?access_token=%@", arguments: [InstagramAPI.INSTAGRAM_APIURl,InstagramAPI.access_token]), method: .get).responseJSON{ response in
         if let responseJSON = response.result.value as? [String: AnyObject] {
             let followers = responseJSON["data"] as! [AnyObject]
@@ -34,4 +34,4 @@ func createSet(json: DataResponse<Any>) -> Set<User>{
         }
     }
     return set
-}
+}*/

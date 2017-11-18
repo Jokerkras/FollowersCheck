@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import UIKit
+
+class UserViewCell: UITableViewCell {
+    
+
+    @IBOutlet weak var nickname: UILabel!
+    
+    public static let reuseId = "UserViewCell_reuseId"
+    
+    public func configure( for user: User) {
+        nickname.text = user.username
+    }
+}

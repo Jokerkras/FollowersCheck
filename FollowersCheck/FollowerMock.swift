@@ -7,10 +7,17 @@
 //
 import Foundation
 
-class FollowersMock: followersGetProtocol{
+class FollowersMock: FollowersGetProtocol {
     
+    static func getFollowers(_ block: [String] -> Void){
+        
+    }
+    static func getFollowedByYou(_ block: [String] -> Void){
+        
+    }
+
     
-    static func getFollowers() -> Set<User> {
+    /*static func getFollowers() -> Set<User> {
         var followersSet = Set<User>()
         for _ in 1...70{
             followersSet.insert(User(username:String(arc4random_uniform(100))))
@@ -24,7 +31,7 @@ class FollowersMock: followersGetProtocol{
             followedBySet.insert(User(username:String(arc4random_uniform(100))))
         }
         return followedBySet
-    }
+    }*/
     
     
 }
