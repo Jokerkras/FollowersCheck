@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-var users = FollowersMock.getFollowers()
+/*var users = FollowersMock.getFollowers()
 
 class FollowerListViewController: UITableViewController{
     
@@ -31,3 +31,4 @@ class FollowerListViewController: UITableViewController{
         return 1
     }
 }
+*/

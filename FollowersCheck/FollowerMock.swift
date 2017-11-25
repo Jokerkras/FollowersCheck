@@ -9,10 +9,10 @@ import Foundation
 
 class FollowersMock: FollowersGetProtocol {
     
-    static func getFollowers(_ block: [String] -> Void){
+    static func getFollowers(_ block: ([String]) -> Void){
         
     }
-    static func getFollowedByYou(_ block: [String] -> Void){
+    static func getFollowedByYou(_ block: ([String]) -> Void){
         
     }
 

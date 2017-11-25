@@ -5,7 +5,7 @@
 //  Created by xcode on 18.11.2017.
 //  Copyright © 2017 PMUGroup. All rights reserved.
 //
-
+/*
 public protocol FollowerDownloader {
     func getFollowers(_ block: [String] -> Void)
 }
@@ -40,3 +40,4 @@ func viewDidLoad() {
     
     //instatrack
 }
+*/

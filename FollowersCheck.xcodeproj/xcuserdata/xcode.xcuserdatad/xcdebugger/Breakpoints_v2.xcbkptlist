@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowersCheck/FollowerListViewController.swift"
-            timestampString = "532701513.778971"
+            timestampString = "532882792.879215"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "14"
             endingLineNumber = "14"
-            landmarkName = "FollowerListViewController"
-            landmarkType = "3">
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -103,13 +103,91 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowersCheck/FollowerListViewController.swift"
-            timestampString = "532701513.779602"
+            timestampString = "532882792.890629"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
             endingLineNumber = "21"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FollowersCheck/AppDelegate.swift"
+            timestampString = "533303516.667918"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FollowersCheck.AppDelegate.__deallocating_deinit"
+                  moduleName = "FollowersCheck"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xcode/Desktop/FollowersCheck/FollowersCheck/FollowersCheck/AppDelegate.swift"
+                  timestampString = "533298310.257782"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FollowersCheck.AppDelegate.__allocating_init() -&gt; FollowersCheck.AppDelegate"
+                  moduleName = "FollowersCheck"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xcode/Desktop/FollowersCheck/FollowersCheck/FollowersCheck/AppDelegate.swift"
+                  timestampString = "533298310.260297"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FollowersCheck.AppDelegate.init() -&gt; FollowersCheck.AppDelegate"
+                  moduleName = "FollowersCheck"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xcode/Desktop/FollowersCheck/FollowersCheck/FollowersCheck/AppDelegate.swift"
+                  timestampString = "533298310.262408"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "main"
+                  moduleName = "FollowersCheck"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xcode/Desktop/FollowersCheck/FollowersCheck/FollowersCheck/AppDelegate.swift"
+                  timestampString = "533298310.264845"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
