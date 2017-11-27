@@ -14,4 +14,10 @@ class SectionTableViewCell: UITableViewCell {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var countfollowers: UILabel!
     
+    func configure(profileImage: UIImage, nickname: String, countfollowers: Int) {
+        self.nickname.text = nickname
+        self.profileImage.image = profileImage
+        self.countfollowers.text = String(countfollowers)
+    }
+    
 }

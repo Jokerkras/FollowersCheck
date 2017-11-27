@@ -23,6 +23,6 @@ class User: Hashable{
 }
 
 protocol  FollowersGetProtocol {
-    static func getFollowers(_ block: ([String]) -> Void)
-    static func getFollowedByYou(_ block: ([String]) -> Void)
+    func getFollowers(_ block: ([User]) -> Void)
+    func getFollowedByYou(_ block: ([User]) -> Void)
 }

@@ -18,6 +18,9 @@
 		94F036881FA0BDF600010CBF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F036871FA0BDF600010CBF /* LoginViewController.swift */; };
 		94F036911FA0BEFF00010CBF /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F036901FA0BEFF00010CBF /* Network.swift */; };
 		94F036931FA0BFF300010CBF /* InstagramAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F036921FA0BFF300010CBF /* InstagramAPI.swift */; };
+		AE56651D1FC992B600DFA5A9 /* FollowersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE56651C1FC992B600DFA5A9 /* FollowersTableViewController.swift */; };
+		AE5665271FC9931B00DFA5A9 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5665251FC9931B00DFA5A9 /* ProfileTableViewCell.swift */; };
+		AE5665281FC9931B00DFA5A9 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE5665261FC9931B00DFA5A9 /* ProfileTableViewCell.xib */; };
 		AE93FCCA1FC04AF1000E837D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE93FCC91FC04AF1000E837D /* Main.storyboard */; };
 		AE93FCCC1FC0500B000E837D /* FollowerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93FCCB1FC0500B000E837D /* FollowerListViewController.swift */; };
 		AE93FCCE1FC050DD000E837D /* UserViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93FCCD1FC050DD000E837D /* UserViewCell.swift */; };
@@ -25,10 +28,7 @@
 		AE93FCD21FC06AD8000E837D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93FCD11FC06AD8000E837D /* MainViewController.swift */; };
 		AEBBAD451FC5B23E00C31379 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBBAD431FC5B23E00C31379 /* SectionTableViewCell.swift */; };
 		AEBBAD461FC5B23E00C31379 /* SectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEBBAD441FC5B23E00C31379 /* SectionTableViewCell.xib */; };
-		AED12F621FC3204300F3C24A /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = AED12F5A1FC3204200F3C24A /* logout.png */; };
-		AED12F651FC3205700F3C24A /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = AED12F641FC3205700F3C24A /* refresh.png */; };
 		AED12F671FC323D600F3C24A /* SectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED12F661FC323D600F3C24A /* SectionTableView.swift */; };
-		AEFC4F4F1FC31B2E007C17D7 /* 265px-American_Beaver.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AEFC4F471FC31B2D007C17D7 /* 265px-American_Beaver.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +117,9 @@
 		94F036871FA0BDF600010CBF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		94F036901FA0BEFF00010CBF /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		94F036921FA0BFF300010CBF /* InstagramAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramAPI.swift; sourceTree = "<group>"; };
+		AE56651C1FC992B600DFA5A9 /* FollowersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersTableViewController.swift; sourceTree = "<group>"; };
+		AE5665251FC9931B00DFA5A9 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		AE5665261FC9931B00DFA5A9 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
 		AE93FCC91FC04AF1000E837D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = FollowersCheck/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		AE93FCCB1FC0500B000E837D /* FollowerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListViewController.swift; sourceTree = "<group>"; };
 		AE93FCCD1FC050DD000E837D /* UserViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewCell.swift; sourceTree = "<group>"; };
@@ -124,10 +127,7 @@
 		AE93FCD11FC06AD8000E837D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AEBBAD431FC5B23E00C31379 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
 		AEBBAD441FC5B23E00C31379 /* SectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionTableViewCell.xib; sourceTree = "<group>"; };
-		AED12F5A1FC3204200F3C24A /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
-		AED12F641FC3205700F3C24A /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = refresh.png; path = FollowersCheck/refresh.png; sourceTree = SOURCE_ROOT; };
 		AED12F661FC323D600F3C24A /* SectionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableView.swift; sourceTree = "<group>"; };
-		AEFC4F471FC31B2D007C17D7 /* 265px-American_Beaver.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "265px-American_Beaver.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,11 +190,14 @@
 				AE93FCCF1FC062E4000E837D /* FollowerDownloader.swift */,
 				944DEE761FB59D4700F076FC /* FollowersGetProtocol.swift */,
 				94CBDAA81F9E068C00F9369E /* ViewController.swift */,
+				AE56651C1FC992B600DFA5A9 /* FollowersTableViewController.swift */,
 				94CBDAAD1F9E068C00F9369E /* Assets.xcassets */,
 				94CBDAAF1F9E068C00F9369E /* LaunchScreen.storyboard */,
 				94CBDAB21F9E068C00F9369E /* Info.plist */,
 				AEBBAD431FC5B23E00C31379 /* SectionTableViewCell.swift */,
 				AEBBAD441FC5B23E00C31379 /* SectionTableViewCell.xib */,
+				AE5665251FC9931B00DFA5A9 /* ProfileTableViewCell.swift */,
+				AE5665261FC9931B00DFA5A9 /* ProfileTableViewCell.xib */,
 			);
 			path = FollowersCheck;
 			sourceTree = "<group>";
@@ -202,9 +205,6 @@
 		AED12F631FC3204900F3C24A /* images */ = {
 			isa = PBXGroup;
 			children = (
-				AED12F641FC3205700F3C24A /* refresh.png */,
-				AED12F5A1FC3204200F3C24A /* logout.png */,
-				AEFC4F471FC31B2D007C17D7 /* 265px-American_Beaver.jpg */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -243,6 +243,7 @@
 				TargetAttributes = {
 					94CBDAA21F9E068C00F9369E = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 9XE57L34DX;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -329,10 +330,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE93FCCA1FC04AF1000E837D /* Main.storyboard in Resources */,
-				AED12F651FC3205700F3C24A /* refresh.png in Resources */,
 				94CBDAB11F9E068C00F9369E /* LaunchScreen.storyboard in Resources */,
-				AED12F621FC3204300F3C24A /* logout.png in Resources */,
-				AEFC4F4F1FC31B2E007C17D7 /* 265px-American_Beaver.jpg in Resources */,
+				AE5665281FC9931B00DFA5A9 /* ProfileTableViewCell.xib in Resources */,
 				94CBDAAE1F9E068C00F9369E /* Assets.xcassets in Resources */,
 				AEBBAD461FC5B23E00C31379 /* SectionTableViewCell.xib in Resources */,
 			);
@@ -348,6 +347,8 @@
 				AE93FCCC1FC0500B000E837D /* FollowerListViewController.swift in Sources */,
 				AE93FCD21FC06AD8000E837D /* MainViewController.swift in Sources */,
 				944DEE771FB59D4700F076FC /* FollowersGetProtocol.swift in Sources */,
+				AE5665271FC9931B00DFA5A9 /* ProfileTableViewCell.swift in Sources */,
+				AE56651D1FC992B600DFA5A9 /* FollowersTableViewController.swift in Sources */,
 				AEBBAD451FC5B23E00C31379 /* SectionTableViewCell.swift in Sources */,
 				94F036881FA0BDF600010CBF /* LoginViewController.swift in Sources */,
 				94F036931FA0BFF300010CBF /* InstagramAPI.swift in Sources */,
@@ -424,7 +425,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -469,7 +470,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -483,6 +484,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9XE57L34DX;
 				INFOPLIST_FILE = FollowersCheck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PMUGroup.FollowersCheck;
@@ -496,6 +498,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9XE57L34DX;
 				INFOPLIST_FILE = FollowersCheck/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PMUGroup.FollowersCheck;
