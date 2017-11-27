@@ -16,5 +16,4 @@ struct InstagramAPI{
     static let INSTAGRAM_ACCESS_TOKEN = "access_token"
     static let INSTAGRAM_SCOPE = "basic+follower_list+relationships"
     static var INSTAGRAM_USER = 0
-    static var SEPARATOR = "|"
 }
