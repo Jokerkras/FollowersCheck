@@ -10,8 +10,6 @@ import Foundation
 import Cache
 
 let diskConfig = DiskConfig(name: "Floppy",
-                            expiry: .date(Date().addingTimeInterval(7*24*3600)),
-                            maxSize: 10000,
                             directory: try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask,
                                                         appropriateFor: nil,
                                                         create:true).appendingPathComponent("MyPreferences"),
@@ -21,24 +19,39 @@ let diskConfig = DiskConfig(name: "Floppy",
 let storage = try! Storage(diskConfig: diskConfig)
 
 func getFollowersFromCache() -> Dictionary<String, Set<User>> {
-    let dates = try! storage.object(ofType: Array<String>.self, forKey: String(InstagramAPI.INSTAGRAM_USER))
+    let userId = String(InstagramAPI.INSTAGRAM_USER)
+    
     var result = Dictionary<String, Set<User>>()
-    var value: Set<User>
-    for date in dates{
-        value = try! storage.object(ofType: Set<User>.self,
-                                    forKey: String(InstagramAPI.INSTAGRAM_USER) + InstagramAPI.SEPARATOR + date)
-        result.updateValue(value, forKey: String(InstagramAPI.INSTAGRAM_USER) + InstagramAPI.SEPARATOR +  date)
+    
+    if try! storage.existsObject(ofType: Array<String>.self, forKey: userId) {
+        let dates = try! storage.object(ofType: Array<String>.self, forKey: userId)
+        var value: Set<User>
+        
+        for date in dates{
+            value = try! storage.object(ofType: Set<User>.self,
+                                        forKey: userId + InstagramAPI.SEPARATOR + date)
+            result.updateValue(value, forKey: date)
+        }
     }
+    
     return result
 }
 
-func setFollowersToCache(users: Dictionary<String, Set<User>>) {
+func setFollowersToCache(users: Set<User>) {
+    let userId = String(InstagramAPI.INSTAGRAM_USER)
+    
     let date = Date()
     let formatter = DateFormatter()
     formatter.dateFormat = "dd.MM.yyyy";
     let dstr = formatter.string(from: date)
     
-    var dates = try! storage.object(ofType: Array<String>.self, forKey: String(InstagramAPI.INSTAGRAM_USER))
+    var dates = Array<String>()
+    
+    if try! storage.existsObject(ofType: Array<String>.self, forKey: userId) {
+        dates = try! storage.object(ofType: Array<String>.self, forKey: userId)
+    }
+    
+    
     dates.append(dstr)
     
     try! storage.setObject(dates, forKey: String(InstagramAPI.INSTAGRAM_USER))
