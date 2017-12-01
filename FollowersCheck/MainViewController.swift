@@ -26,14 +26,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView1: UITableView!
     
     @IBOutlet weak var profileImage: UIImageView!
+    
     var odd = UIColor(red: 194/255, green: 239/255, blue: 249/255, alpha: 1.0)
     var notodd = UIColor(red: 227/255, green: 247/255, blue: 252/255, alpha: 1.0)
     var followers =  Set<User>()
     var followedBy =  Set<User>()
     
     var setToSegue = Set<User>()
-    override func viewDidDisappear(_ animated: Bool) {
-        navigationController?.setToolbarHidden(false, animated: true)
+    
+    @IBAction func buttonLogoutPressed(_ sender: Any){
+        logout()
+        
+        self .performSegue(withIdentifier: "segueLogout", sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,8 +61,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView1.dataSource = self
         tableView1.backgroundColor = UIColor(red: 130/255, green: 227/255, blue: 245/255, alpha: 1.0)
         
-        
-        
         arrayOfCells = [cellData(cell:1, nickname: "Подписались", countFollowers: 10, profileImage: #imageLiteral(resourceName: "plus")),
                         cellData(cell:2, nickname: "Отписались", countFollowers: 120, profileImage: #imageLiteral(resourceName: "cancel")),
                         cellData(cell:3, nickname: "Игнорируете Вы", countFollowers: 130, profileImage: #imageLiteral(resourceName: "happy")),
@@ -78,10 +80,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? FollowersTableViewController
-            else {fatalError("Some Error")}
-        
-        destination.users = setToSegue
+        if  let destination = segue.destination as? FollowersTableViewController {
+            destination.users = setToSegue
+        }
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {

@@ -11,6 +11,7 @@
 		940735551F9E115F005AB190 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 940735471F9E1149005AB190 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		940A9F381FB5A0A300308576 /* FollowerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940A9F371FB5A0A300308576 /* FollowerMock.swift */; };
 		944DEE771FB59D4700F076FC /* FollowersGetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944DEE761FB59D4700F076FC /* FollowersGetProtocol.swift */; };
+		947429AF1FCDD01F0065194C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947429AE1FCDD01F0065194C /* MainViewController.swift */; };
 		94CBDAA71F9E068C00F9369E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBDAA61F9E068C00F9369E /* AppDelegate.swift */; };
 		94CBDAA91F9E068C00F9369E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBDAA81F9E068C00F9369E /* ViewController.swift */; };
 		94CBDAAE1F9E068C00F9369E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94CBDAAD1F9E068C00F9369E /* Assets.xcassets */; };
@@ -25,7 +26,6 @@
 		AE93FCCC1FC0500B000E837D /* FollowerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93FCCB1FC0500B000E837D /* FollowerListViewController.swift */; };
 		AE93FCCE1FC050DD000E837D /* UserViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93FCCD1FC050DD000E837D /* UserViewCell.swift */; };
 		AE93FCD01FC062E4000E837D /* FollowerDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93FCCF1FC062E4000E837D /* FollowerDownloader.swift */; };
-		AE93FCD21FC06AD8000E837D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93FCD11FC06AD8000E837D /* MainViewController.swift */; };
 		AEBBAD451FC5B23E00C31379 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBBAD431FC5B23E00C31379 /* SectionTableViewCell.swift */; };
 		AEBBAD461FC5B23E00C31379 /* SectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEBBAD441FC5B23E00C31379 /* SectionTableViewCell.xib */; };
 		AED12F671FC323D600F3C24A /* SectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED12F661FC323D600F3C24A /* SectionTableView.swift */; };
@@ -108,6 +108,7 @@
 		9407353B1F9E1149005AB190 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		940A9F371FB5A0A300308576 /* FollowerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerMock.swift; sourceTree = "<group>"; };
 		944DEE761FB59D4700F076FC /* FollowersGetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersGetProtocol.swift; sourceTree = "<group>"; };
+		947429AE1FCDD01F0065194C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		94CBDAA31F9E068C00F9369E /* FollowersCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FollowersCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94CBDAA61F9E068C00F9369E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94CBDAA81F9E068C00F9369E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +125,6 @@
 		AE93FCCB1FC0500B000E837D /* FollowerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListViewController.swift; sourceTree = "<group>"; };
 		AE93FCCD1FC050DD000E837D /* UserViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewCell.swift; sourceTree = "<group>"; };
 		AE93FCCF1FC062E4000E837D /* FollowerDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerDownloader.swift; sourceTree = "<group>"; };
-		AE93FCD11FC06AD8000E837D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AEBBAD431FC5B23E00C31379 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
 		AEBBAD441FC5B23E00C31379 /* SectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionTableViewCell.xib; sourceTree = "<group>"; };
 		AED12F661FC323D600F3C24A /* SectionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableView.swift; sourceTree = "<group>"; };
@@ -176,12 +176,11 @@
 		94CBDAA51F9E068C00F9369E /* FollowersCheck */ = {
 			isa = PBXGroup;
 			children = (
-				AED12F631FC3204900F3C24A /* images */,
+				947429AE1FCDD01F0065194C /* MainViewController.swift */,
 				94CBDAA61F9E068C00F9369E /* AppDelegate.swift */,
 				AED12F661FC323D600F3C24A /* SectionTableView.swift */,
 				94F036871FA0BDF600010CBF /* LoginViewController.swift */,
 				AE93FCC91FC04AF1000E837D /* Main.storyboard */,
-				AE93FCD11FC06AD8000E837D /* MainViewController.swift */,
 				AE93FCCB1FC0500B000E837D /* FollowerListViewController.swift */,
 				AE93FCCD1FC050DD000E837D /* UserViewCell.swift */,
 				94F036921FA0BFF300010CBF /* InstagramAPI.swift */,
@@ -200,13 +199,6 @@
 				AE5665261FC9931B00DFA5A9 /* ProfileTableViewCell.xib */,
 			);
 			path = FollowersCheck;
-			sourceTree = "<group>";
-		};
-		AED12F631FC3204900F3C24A /* images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,7 +230,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = PMUGroup;
 				TargetAttributes = {
 					94CBDAA21F9E068C00F9369E = {
@@ -345,7 +337,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE93FCCC1FC0500B000E837D /* FollowerListViewController.swift in Sources */,
-				AE93FCD21FC06AD8000E837D /* MainViewController.swift in Sources */,
 				944DEE771FB59D4700F076FC /* FollowersGetProtocol.swift in Sources */,
 				AE5665271FC9931B00DFA5A9 /* ProfileTableViewCell.swift in Sources */,
 				AE56651D1FC992B600DFA5A9 /* FollowersTableViewController.swift in Sources */,
@@ -354,6 +345,7 @@
 				94F036931FA0BFF300010CBF /* InstagramAPI.swift in Sources */,
 				94CBDAA91F9E068C00F9369E /* ViewController.swift in Sources */,
 				94F036911FA0BEFF00010CBF /* Network.swift in Sources */,
+				947429AF1FCDD01F0065194C /* MainViewController.swift in Sources */,
 				AE93FCD01FC062E4000E837D /* FollowerDownloader.swift in Sources */,
 				AE93FCCE1FC050DD000E837D /* UserViewCell.swift in Sources */,
 				AED12F671FC323D600F3C24A /* SectionTableView.swift in Sources */,
@@ -394,7 +386,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -402,7 +396,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -445,7 +443,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -453,7 +453,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

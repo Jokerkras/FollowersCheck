@@ -18,20 +18,20 @@ class LoginViewController: UIViewController{
         
         webView.delegate = self
         unSignedRequest()
-        
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        navigationController?.setToolbarHidden(false, animated: true)
+    }
     
     func unSignedRequest () {
         let authURL = String(format: "%@?client_id=%@&redirect_uri=%@&response_type=token&scope=%@&DEBUG=True", arguments: [InstagramAPI.INSTAGRAM_AUTHURL,InstagramAPI.INSTAGRAM_CLIENT_ID,InstagramAPI.INSTAGRAM_REDIRECT_URI, InstagramAPI.INSTAGRAM_SCOPE ])
         let urlRequest =  URLRequest.init(url: URL.init(string: authURL)!)
         webView.loadRequest(urlRequest)
-        self .performSegue(withIdentifier: "seeUsers", sender: self)
     }
 }
 
 extension LoginViewController: UIWebViewDelegate{
-    
     
     func webView(_ webView: UIWebView, shouldStartLoadWith request:URLRequest, navigationType: UIWebViewNavigationType) -> Bool{
         return checkRequestForCallbackURL(request: request)
@@ -43,13 +43,14 @@ extension LoginViewController: UIWebViewDelegate{
             let range: Range<String.Index> = requestURLString.range(of: "#access_token=")!
             handleAuth(authToken: requestURLString.substring(from: range.upperBound))
             self.webView.stopLoading()
+            self .performSegue(withIdentifier: "segueToMainView", sender: self)
             return false;
         }
         return true
     }
     func handleAuth(authToken: String) {
         InstagramAPI.access_token = authToken
-        //getFollowers()
+        getFollowers()
         print(authToken)
     }
 }
