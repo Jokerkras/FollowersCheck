@@ -13,10 +13,11 @@ func logout(){
 }
 
 func getFollowers() {
-    Alamofire.request(String(format: "%@self/followed-by?access_token=%@", arguments: [InstagramAPI.INSTAGRAM_APIURl,InstagramAPI.access_token]), method: .get).responseJSON{ response in
+    Alamofire.request("https://www.instagram.com/graphql/query/?query_id=17851374694183129&id=&first=&", method: .get).responseJSON{ response in
         print(response)
     }
 }
+
 /*
 func createSet(json: DataResponse<Any>) -> Set<User>{
     var set = Set<User>()
