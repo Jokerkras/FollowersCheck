@@ -9,16 +9,24 @@ import Foundation
 
 class FollowersMock: FollowersGetProtocol {
     
-    static func getFollowers(_ block: ([String]) -> Void){
-        
+    func getFollowers(_ block: ([User]) -> Void){
+        var followers = [User]()
+        for _ in 1...70{
+            followers.append(User(username:String(arc4random_uniform(100))))
+        }
+        block(followers)
     }
-    static func getFollowedByYou(_ block: ([String]) -> Void){
-        
+    func getFollowedByYou(_ block: ([User]) -> Void){
+        var followers = [User]()
+        for _ in 1...70{
+            followers.append(User(username:String(arc4random_uniform(100))))
+        }
+        block(followers)
     }
 
     
     /*static func getFollowers() -> Set<User> {
-        var followersSet = Set<User>()
+        var followersSet =
         for _ in 1...70{
             followersSet.insert(User(username:String(arc4random_uniform(100))))
         }

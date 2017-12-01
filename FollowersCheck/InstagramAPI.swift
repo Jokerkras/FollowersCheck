@@ -8,6 +8,7 @@
 
 struct InstagramAPI{
     static var access_token = ""
+    static let INSTAGRAM_LOGOUT = "https://instagram.com/accounts/logout/"
     static let INSTAGRAM_AUTHURL = "https://api.instagram.com/oauth/authorize/"
     static let INSTAGRAM_APIURl  = "https://api.instagram.com/v1/users/"
     static let INSTAGRAM_CLIENT_ID = "35e1abbf8b474e1593e7b8c2f72f9cdd"
