@@ -36,7 +36,7 @@ extension LoginViewController: UIWebViewDelegate{
     func webView(_ webView: UIWebView, shouldStartLoadWith request:URLRequest, navigationType: UIWebViewNavigationType) -> Bool{
         return checkRequestForCallbackURL(request: request)
     }
-
+    
     func checkRequestForCallbackURL(request: URLRequest) -> Bool {
         let requestURLString = (request.url?.absoluteString)! as String
         if requestURLString.hasPrefix(InstagramAPI.INSTAGRAM_REDIRECT_URI) {
@@ -49,8 +49,6 @@ extension LoginViewController: UIWebViewDelegate{
         return true
     }
     func handleAuth(authToken: String) {
-        InstagramAPI.access_token = authToken
-        getFollowers()
-        print(authToken)
+        InstagramAPI.INSTAGRAM_ACCESS_TOKEN = authToken
     }
 }

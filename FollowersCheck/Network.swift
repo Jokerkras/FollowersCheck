@@ -7,27 +7,28 @@
 //
 
 import Alamofire
+import UIKit
 
-func logout(){
-    Alamofire.request(InstagramAPI.INSTAGRAM_LOGOUT)
-}
-
-func getFollowers() {
-    Alamofire.request(String(format: "%@self/followed-by?access_token=%@", arguments: [InstagramAPI.INSTAGRAM_APIURl,InstagramAPI.access_token]), method: .get).responseJSON{ response in
+func logout(_ block: @escaping () -> Void) {
+    Alamofire.request(InstagramAPI.INSTAGRAM_LOGOUT).response{
+        response in
         print(response)
+        block()
     }
 }
-/*
-func createSet(json: DataResponse<Any>) -> Set<User>{
-    var set = Set<User>()
-    if let result = json.result.value as? [String: AnyObject] {
-        let jsonList = result["data"] as! [AnyObject]
-        for item in jsonList {
-            var user = User()
-            let buf = item as! [String: AnyObject]
-            user.username = buf["username"] as! String
-            set.insert(user)
+
+func getPicture(block: @escaping (Data) -> Void) {
+    Alamofire.request(InstagramAPI.INSTAGRAM_PROFILE_IMAGE, method: .get).response{ response in
+        block(response.data!)
+    }
+}
+
+func getParams(block: @escaping ( String, String, String, String, String) -> Void) {
+    Alamofire.request(String(format: "%@self/?access_token=%@", arguments: [InstagramAPI.INSTAGRAM_APIURl,InstagramAPI.INSTAGRAM_ACCESS_TOKEN]), method: .get).responseJSON{ response in
+        if let responseJSON = response.result.value as? [String: AnyObject]{
+            let data = responseJSON["data"] as! [String: AnyObject]
+            let counts = data["counts"] as! [String : Int64]
+            block(data["username"] as! String, data["id"] as! String, String(counts["follows"]!),String(counts["followed_by"]!), data["profile_picture"] as! String)
         }
     }
-    return set
-}*/
+}

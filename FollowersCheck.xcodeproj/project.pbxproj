@@ -28,7 +28,6 @@
 		AE93FCD01FC062E4000E837D /* FollowerDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93FCCF1FC062E4000E837D /* FollowerDownloader.swift */; };
 		AEBBAD451FC5B23E00C31379 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBBAD431FC5B23E00C31379 /* SectionTableViewCell.swift */; };
 		AEBBAD461FC5B23E00C31379 /* SectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEBBAD441FC5B23E00C31379 /* SectionTableViewCell.xib */; };
-		AED12F671FC323D600F3C24A /* SectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED12F661FC323D600F3C24A /* SectionTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,7 +69,6 @@
 		AE93FCCF1FC062E4000E837D /* FollowerDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerDownloader.swift; sourceTree = "<group>"; };
 		AEBBAD431FC5B23E00C31379 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
 		AEBBAD441FC5B23E00C31379 /* SectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionTableViewCell.xib; sourceTree = "<group>"; };
-		AED12F661FC323D600F3C24A /* SectionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +123,6 @@
 			children = (
 				947429AE1FCDD01F0065194C /* MainViewController.swift */,
 				94CBDAA61F9E068C00F9369E /* AppDelegate.swift */,
-				AED12F661FC323D600F3C24A /* SectionTableView.swift */,
 				94F036871FA0BDF600010CBF /* LoginViewController.swift */,
 				AE93FCC91FC04AF1000E837D /* Main.storyboard */,
 				AE93FCCB1FC0500B000E837D /* FollowerListViewController.swift */,
@@ -297,7 +294,6 @@
 				947429AF1FCDD01F0065194C /* MainViewController.swift in Sources */,
 				AE93FCD01FC062E4000E837D /* FollowerDownloader.swift in Sources */,
 				AE93FCCE1FC050DD000E837D /* UserViewCell.swift in Sources */,
-				AED12F671FC323D600F3C24A /* SectionTableView.swift in Sources */,
 				94CBDAA71F9E068C00F9369E /* AppDelegate.swift in Sources */,
 				940A9F381FB5A0A300308576 /* FollowerMock.swift in Sources */,
 			);
