@@ -106,11 +106,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if indexPath.row == 1 {
+        if indexPath.row == 0 {
             setToSegue = self.followers
-        } else if indexPath.row == 2 {
+        } else if indexPath.row == 1 {
             setToSegue = self.followedBy
-        } else if indexPath.row == 3 {
+        } else if indexPath.row == 2 {
             setToSegue = self.followedBy.subtracting(self.followers)
         } else {
             setToSegue = self.followers.subtracting(self.followedBy)

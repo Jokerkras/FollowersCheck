@@ -43,9 +43,8 @@ class FollowerDownloader: FollowersGetProtocol {
                     Users.append(User(username: nick))
                 }
             }
-            
+            block(Users)
         }
-        block(Users)
     }
 }
 /*
