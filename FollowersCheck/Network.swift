@@ -1,11 +1,3 @@
-//
-//  Network.swift
-//  FollowersCheck
-//
-//  Created by Maxim on 10/25/17.
-//  Copyright © 2017 PMUGroup. All rights reserved.
-//
-
 import Alamofire
 import UIKit
 
