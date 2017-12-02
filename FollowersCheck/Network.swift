@@ -17,8 +17,8 @@ func logout(_ block: @escaping () -> Void) {
     }
 }
 
-func getPicture(block: @escaping (Data) -> Void) {
-    Alamofire.request(InstagramAPI.INSTAGRAM_PROFILE_IMAGE, method: .get).response{ response in
+func getPicture(url: String, block: @escaping (Data) -> Void) {
+    Alamofire.request(url, method: .get).response{ response in
         block(response.data!)
     }
 }

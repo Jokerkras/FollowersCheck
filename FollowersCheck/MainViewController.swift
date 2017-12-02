@@ -20,6 +20,7 @@ struct cellData{
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var arrayOfCells = [cellData]()
     let userTool = FollowerDownloader()
 
@@ -32,8 +33,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var odd = UIColor(red: 194/255, green: 239/255, blue: 249/255, alpha: 1.0)
     var notodd = UIColor(red: 227/255, green: 247/255, blue: 252/255, alpha: 1.0)
-    var followers =  Set<User>()
-    var followedBy =  Set<User>()
+    var followers =  [User]()
+    var followedBy =  [User]()
     
     var setToSegue = Set<User>()
     
@@ -46,37 +47,26 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setToolbarHidden(true, animated: false)
+        self.activityIndicator.hidesWhenStopped = true
+        view.addSubview(activityIndicator)
+        buttonRefreshPressed(self)
+    }
+    
+    public var currentOngoingEventCount = 4
+    public var currentFinishedEventCount = 0
+    func requestEnded() {
+        currentFinishedEventCount += 1
+        if currentFinishedEventCount == currentOngoingEventCount {
+            activityIndicator.stopAnimating()
+            self.tableView1.allowsSelection = true
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         
-        getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String) in
-            InstagramAPI.INSTAGRAM_PROFILE_IMAGE = pi
-            InstagramAPI.INSTAGRAM_USERNAME = name
-            self.labelNickname.text = name
-            InstagramAPI.INSTAGRAM_FOLLOWEDBY = fbc
-            self.labelFollowedBy.text = fbc
-            InstagramAPI.INSTAGRAM_FOLLOWS = fc
-            self.labelFollows.text = fc
-            InstagramAPI.INSTAGRAM_USER_ID = id
-        })
-        
-        getPicture(block: {(data: Data) in
-            self.profileImage.image = UIImage(data: data)
-        })
-        
-        userTool.getFollowers({(usrs: [User]) in
-            for us in usrs{
-                self.followers.insert(us)
-            }
-        })
-        userTool.getFollowedByYou({(usrs: [User]) in
-            for us in usrs{
-                self.followedBy.insert(us)
-            }
-        })
     }
     
     override func viewDidLoad(){
-        
         tableView1.delegate = self
         tableView1.dataSource = self
         tableView1.backgroundColor = UIColor(red: 130/255, green: 227/255, blue: 245/255, alpha: 1.0)
@@ -90,10 +80,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         profileImage.clipsToBounds = true
         profileImage.layer.borderWidth = 3.0
         profileImage.layer.borderColor = UIColor.black.cgColor
+        self.activityIndicator.startAnimating()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return tableView1.bounds.height / 4
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayOfCells.count
@@ -106,14 +97,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let fol = Set<User>(self.followers)
+        let foldb = Set<User>(self.followedBy)
+        
         if indexPath.row == 0 {
-            setToSegue = self.followers
+            setToSegue = fol
         } else if indexPath.row == 1 {
-            setToSegue = self.followedBy
+            setToSegue = foldb
         } else if indexPath.row == 2 {
-            setToSegue = self.followedBy.subtracting(self.followers)
+            setToSegue = foldb.subtracting(fol)
         } else {
-            setToSegue = self.followers.subtracting(self.followedBy)
+            setToSegue = fol.subtracting(foldb)
         }
         self .performSegue(withIdentifier: "showFollowers", sender: self)
         return indexPath
@@ -138,16 +132,51 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = Bundle.main.loadNibNamed("SectionTableViewCell", owner: self, options: nil)?.first as! SectionTableViewCell
             cell.configure(profileImage: arrayOfCells[indexPath.row].profileImage,
                            nickname: arrayOfCells[indexPath.row].nickname,
-                           countfollowers: self.followers.subtracting(self.followedBy).count)
+                           countfollowers: 4)
             cell.backgroundColor = notodd
             return cell
         }else {
             let cell = Bundle.main.loadNibNamed("SectionTableViewCell", owner: self, options: nil)?.first as! SectionTableViewCell
             cell.configure(profileImage: arrayOfCells[indexPath.row].profileImage,
                            nickname: arrayOfCells[indexPath.row].nickname,
-                           countfollowers: self.followedBy.subtracting(self.followers).count)
+                           countfollowers: 5)
             cell.backgroundColor = odd
             return cell
+        }
+    }
+
+    
+    @IBAction func buttonRefreshPressed(_ sender: Any) {
+        currentFinishedEventCount = 0
+        self.activityIndicator.startAnimating()
+        self.tableView1.allowsSelection = false
+        DispatchQueue.global().sync{
+            getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String) in
+                InstagramAPI.INSTAGRAM_PROFILE_IMAGE = pi
+                InstagramAPI.INSTAGRAM_USERNAME = name
+                self.labelNickname.text = name
+                InstagramAPI.INSTAGRAM_FOLLOWEDBY = fbc
+                self.labelFollowedBy.text = fbc
+                InstagramAPI.INSTAGRAM_FOLLOWS = fc
+                self.labelFollows.text = fc
+                InstagramAPI.INSTAGRAM_USER_ID = id
+                self.requestEnded()
+            })
+
+            getPicture(url: InstagramAPI.INSTAGRAM_PROFILE_IMAGE, block: {(data: Data) in
+                self.profileImage.image = UIImage(data: data)
+                self.requestEnded()
+            })
+
+            userTool.getFollowers({(usrs: [User]) in
+                self.followers = [User](usrs)
+                self.requestEnded()
+            })
+
+            userTool.getFollowedByYou({(usrs: [User]) in
+                self.followedBy = [User](usrs)
+                self.requestEnded()
+            })
         }
     }
 }
