@@ -18,6 +18,7 @@ class FollowersCaching {
     static let FollowedBy = "FollowedBy"
     static let DateFormat = "dd.MM.yyyy"
     static let MaxRecords = 5;
+    static let formatter  = DateFormatter()
     
     static var userId = String(InstagramAPI.INSTAGRAM_USER)
 
@@ -61,7 +62,6 @@ class FollowersCaching {
     
     static private func setUsersToCache(forKey key: String, users: Set<User>) {
         let date = Date()
-        let formatter = DateFormatter()
         formatter.dateFormat = DateFormat
         let dateStr = formatter.string(from: date)
         
@@ -91,5 +91,33 @@ class FollowersCaching {
         let key = userId + FollowedBy
         
         setUsersToCache(forKey: key, users: users)
+    }
+    
+    static private func getLastUsers(forKey key: String) -> Set<User> {
+        var dates = Array<String>()
+        
+        if try! storage.existsObject(ofType: Array<String>.self, forKey: userId) {
+            dates = try! storage.object(ofType: Array<String>.self, forKey: userId)
+        }
+        
+        var result = Set<User>()
+        
+        if dates.count > 0 {
+            result = try! storage.object(ofType: Set<User>.self, forKey: key + Separator + dates.last!)
+        }
+        
+        return result
+    }
+    
+    static func getLastFollowers() -> Set<User> {
+        let key = userId + Separator + Followers
+        
+        return getLastUsers(forKey: key)
+    }
+    
+    static func getLastFollowedBy() -> Set<User> {
+        let key = userId + Separator + FollowedBy
+        
+        return getLastUsers(forKey: key)
     }
 }

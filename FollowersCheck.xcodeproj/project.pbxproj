@@ -183,6 +183,7 @@
 					94CBDAA21F9E068C00F9369E = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 9XE57L34DX;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 				};
