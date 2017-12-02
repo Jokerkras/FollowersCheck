@@ -25,6 +25,7 @@ class ProfileTableViewCell: UITableViewCell {
         
         self.layer.borderWidth = 1
         self.backgroundColor = UIColor(red: 194/255, green: 239/255, blue: 249/255, alpha: 1.0)
+        self.profileImage.layer.cornerRadius = self.profileImage.layer.frame.width / 2
         
         followButton.backgroundColor = UIColor(red: 150/255, green: 227/255, blue: 255/255, alpha: 1.0)
         followButton.layer.borderWidth = 1
