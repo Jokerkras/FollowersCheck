@@ -11,36 +11,34 @@ import Cache
 
 class FollowersCaching {
     
-    static let DISK_NAME  = "Floppy"
-    static let DiskPath   = "MyPreferences"
-    static let Separator  = "|"
-    static let Followers  = "Followers"
-    static let FollowedBy = "FollowedBy"
-    static let DateFormat = "dd.MM.yyyy"
-    static let MaxRecords = 5;
-    static let formatter  = DateFormatter()
-    
-    static var userId = String(InstagramAPI.INSTAGRAM_USER)
+    static let DISK_NAME   = "Floppy"
+    static let DISK_PATH   = "MyPreferences"
+    static let SEPARATOR  = "|"
+    static let FOLLOWERS  = "Followers"
+    static let FOLLOWEDBY = "FollowedBy"
+    static let DATE_FORMAT = "dd.MM.yyyy"
+    static let MAX_RECORDS_COUNT = 5;
+    static let FORMATTER  = DateFormatter()
 
     static let diskConfig = DiskConfig(name: DISK_NAME,
                                 directory: try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask,
                                                             appropriateFor: nil,
-                                                            create:true).appendingPathComponent(DiskPath),
+                                                            create:true).appendingPathComponent(DISK_PATH),
                                 protectionType: .complete)
     
     static let storage = try! Storage(diskConfig: diskConfig)
     
-    //key : user_id + followers/followed_by
-    static private func getUsersFromCache(forKey key:String) -> Dictionary<String, Set<User>> {
-        var result = Dictionary<String,Set<User>>()
+    //key : user_id + separator + followers/followed_by
+    static private func getUsersFromCache(forKey key: String) -> Dictionary<String, Array<User>> {
+        var result = Dictionary<String, Array<User>>()
         
         if try! storage.existsObject(ofType: Array<String>.self, forKey: key) {
             let dates = try! storage.object(ofType: Array<String>.self, forKey: key)
-            var value: Set<User>
+            var value: Array<User>
             
             for date in dates{
-                value = try! storage.object(ofType: Set<User>.self,
-                                            forKey: key + Separator + date)
+                value = try! storage.object(ofType: Array<User>.self,
+                                            forKey: key + SEPARATOR + date)
                 result.updateValue(value, forKey: date)
             }
         }
@@ -48,75 +46,75 @@ class FollowersCaching {
         return result
     }
 
-    static func getFollowersFromCache() -> Dictionary<String, Set<User>> {
-        let key = userId + Separator + Followers
+    static func getFollowersFromCache() -> Dictionary<String, Array<User>> {
+        let key = InstagramAPI.INSTAGRAM_CLIENT_ID + SEPARATOR + FOLLOWERS
         
         return getUsersFromCache(forKey: key)
     }
     
-    static func getFollowedByFromCache() -> Dictionary<String, Set<User>> {
-        let key = userId + Separator + FollowedBy
+    static func getFollowedByFromCache() -> Dictionary<String, Array<User>> {
+        let key = InstagramAPI.INSTAGRAM_CLIENT_ID + SEPARATOR + FOLLOWEDBY
         
         return getUsersFromCache(forKey: key)
     }
     
-    static private func setUsersToCache(forKey key: String, users: Set<User>) {
+    static private func setUsersToCache(forKey key: String, users: Array<User>) {
         let date = Date()
-        formatter.dateFormat = DateFormat
-        let dateStr = formatter.string(from: date)
+        FORMATTER.dateFormat = DATE_FORMAT
+        let dateStr = FORMATTER.string(from: date)
         
         var dates = Array<String>()
         
-        if try! storage.existsObject(ofType: Array<String>.self, forKey: userId) {
-            dates = try! storage.object(ofType: Array<String>.self, forKey: userId)
+        if try! storage.existsObject(ofType: Array<String>.self, forKey: key) {
+            dates = try! storage.object(ofType: Array<String>.self, forKey: key)
         }
         
-        if dates.count >= MaxRecords {
+        if dates.count >= MAX_RECORDS_COUNT {
             let dateToRemove = dates.removeFirst()
-            try! storage.removeObject(forKey: key + Separator + dateToRemove)
+            try! storage.removeObject(forKey: key + SEPARATOR + dateToRemove)
         }
         
         dates.append(dateStr)
         try! storage.setObject(dates, forKey: key)
-        try! storage.setObject(users, forKey: key + Separator + dateStr)
+        try! storage.setObject(users, forKey: key + SEPARATOR + dateStr)
     }
-
-    static func setFollowersToCache(users: Set<User>) {
-        let key = userId + Followers
+    
+    static func setFollowersToCache(users: Array<User>) {
+        let key = InstagramAPI.INSTAGRAM_CLIENT_ID + SEPARATOR + FOLLOWERS
         
         setUsersToCache(forKey: key, users: users)
     }
     
-    static func setFollowedByToCache(users: Set<User>) {
-        let key = userId + FollowedBy
+    static func setFollowedByToCache(users: Array<User>) {
+        let key = InstagramAPI.INSTAGRAM_CLIENT_ID + SEPARATOR + FOLLOWEDBY
         
         setUsersToCache(forKey: key, users: users)
     }
     
-    static private func getLastUsers(forKey key: String) -> Set<User> {
+    static private func getLastUsers(forKey key: String) -> Array<User> {
         var dates = Array<String>()
         
-        if try! storage.existsObject(ofType: Array<String>.self, forKey: userId) {
-            dates = try! storage.object(ofType: Array<String>.self, forKey: userId)
+        if try! storage.existsObject(ofType: Array<String>.self, forKey: key) {
+            dates = try! storage.object(ofType: Array<String>.self, forKey: key)
         }
         
-        var result = Set<User>()
+        var result = Array<User>()
         
         if dates.count > 0 {
-            result = try! storage.object(ofType: Set<User>.self, forKey: key + Separator + dates.last!)
+            result = try! storage.object(ofType: Array<User>.self, forKey: key + SEPARATOR + dates.last!)
         }
         
         return result
     }
     
-    static func getLastFollowers() -> Set<User> {
-        let key = userId + Separator + Followers
+    static func getLastFollowers() -> Array<User> {
+        let key = InstagramAPI.INSTAGRAM_CLIENT_ID + SEPARATOR + FOLLOWERS
         
         return getLastUsers(forKey: key)
     }
     
-    static func getLastFollowedBy() -> Set<User> {
-        let key = userId + Separator + FollowedBy
+    static func getLastFollowedBy() -> Array<User> {
+        let key = InstagramAPI.INSTAGRAM_CLIENT_ID + SEPARATOR + FOLLOWEDBY
         
         return getLastUsers(forKey: key)
     }
