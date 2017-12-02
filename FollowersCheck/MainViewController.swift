@@ -21,8 +21,11 @@ struct cellData{
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var arrayOfCells = [cellData]()
-    let userTool = FollowersMock()
+    let userTool = FollowerDownloader()
 
+    @IBOutlet weak var labelNickname: UILabel!
+    @IBOutlet weak var labelFollows: UILabel!
+    @IBOutlet weak var labelFollowedBy: UILabel!
     @IBOutlet weak var tableView1: UITableView!
     
     @IBOutlet weak var profileImage: UIImageView!
@@ -35,22 +38,39 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var setToSegue = Set<User>()
     
     @IBAction func buttonLogoutPressed(_ sender: Any){
-        logout()
-        
+        logout(out)
+    }
+    
+    func out() {
         self .performSegue(withIdentifier: "segueLogout", sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setToolbarHidden(true, animated: false)
         
+        getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String) in
+            InstagramAPI.INSTAGRAM_PROFILE_IMAGE = pi
+            InstagramAPI.INSTAGRAM_USERNAME = name
+            self.labelNickname.text = name
+            InstagramAPI.INSTAGRAM_FOLLOWEDBY = fbc
+            self.labelFollowedBy.text = fbc
+            InstagramAPI.INSTAGRAM_FOLLOWS = fc
+            self.labelFollows.text = fc
+            InstagramAPI.INSTAGRAM_USER_ID = id
+        })
+        
+        getPicture(block: {(data: Data) in
+            self.profileImage.image = UIImage(data: data)
+        })
+        
         userTool.getFollowers({(usrs: [User]) in
             for us in usrs{
-                followers.insert(us)
+                self.followers.insert(us)
             }
         })
         userTool.getFollowedByYou({(usrs: [User]) in
             for us in usrs{
-                followedBy.insert(us)
+                self.followedBy.insert(us)
             }
         })
     }
@@ -81,19 +101,19 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  let destination = segue.destination as? FollowersTableViewController {
-            destination.users = setToSegue
+            destination.users = self.setToSegue
         }
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if indexPath.row == 1 {
-            setToSegue = followers
+            setToSegue = self.followers
         } else if indexPath.row == 2 {
-            setToSegue = followedBy
+            setToSegue = self.followedBy
         } else if indexPath.row == 3 {
-            setToSegue = followers.subtracting(followedBy)
+            setToSegue = self.followedBy.subtracting(self.followers)
         } else {
-            setToSegue = followedBy.subtracting(followers)
+            setToSegue = self.followers.subtracting(self.followedBy)
         }
         self .performSegue(withIdentifier: "showFollowers", sender: self)
         return indexPath
@@ -118,14 +138,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = Bundle.main.loadNibNamed("SectionTableViewCell", owner: self, options: nil)?.first as! SectionTableViewCell
             cell.configure(profileImage: arrayOfCells[indexPath.row].profileImage,
                            nickname: arrayOfCells[indexPath.row].nickname,
-                           countfollowers: followers.subtracting(followedBy).count)
+                           countfollowers: self.followers.subtracting(self.followedBy).count)
             cell.backgroundColor = notodd
             return cell
         }else {
             let cell = Bundle.main.loadNibNamed("SectionTableViewCell", owner: self, options: nil)?.first as! SectionTableViewCell
             cell.configure(profileImage: arrayOfCells[indexPath.row].profileImage,
                            nickname: arrayOfCells[indexPath.row].nickname,
-                           countfollowers: followedBy.subtracting(followers).count)
+                           countfollowers: self.followedBy.subtracting(self.followers).count)
             cell.backgroundColor = odd
             return cell
         }

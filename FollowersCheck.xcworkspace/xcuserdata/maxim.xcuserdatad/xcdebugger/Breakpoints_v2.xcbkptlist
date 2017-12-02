@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FollowersCheck/MainViewController.swift"
+            timestampString = "533837966.628427"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FollowersCheck/MainViewController.swift"
+            timestampString = "533837966.629155"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FollowersCheck.MainViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "FollowersCheck"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maxim/Desktop/FollowersCheck/FollowersCheck/MainViewController.swift"
+                  timestampString = "533829463.258512"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "1299">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Array&lt;FollowersCheck.User&gt;) -&gt; () in FollowersCheck.MainViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "FollowersCheck"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maxim/Desktop/FollowersCheck/FollowersCheck/MainViewController.swift"
+                  timestampString = "533829463.272521"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "479">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FollowersCheck/MainViewController.swift"
+            timestampString = "533837966.629667"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FollowersCheck.MainViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "FollowersCheck"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maxim/Desktop/FollowersCheck/FollowersCheck/MainViewController.swift"
+                  timestampString = "533837767.363806"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "507">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (Swift.Array&lt;FollowersCheck.User&gt;) -&gt; () in FollowersCheck.MainViewController.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "FollowersCheck"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maxim/Desktop/FollowersCheck/FollowersCheck/MainViewController.swift"
+                  timestampString = "533837767.377476"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "25">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

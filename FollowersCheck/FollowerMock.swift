@@ -7,7 +7,7 @@
 //
 import Foundation
 
-class FollowersMock: FollowersGetProtocol {
+/*class FollowersMock: FollowersGetProtocol {
     
     func getFollowers(_ block: ([User]) -> Void){
         var followers = [User]()
@@ -23,6 +23,7 @@ class FollowersMock: FollowersGetProtocol {
         }
         block(followers)
     }
+ }*/
 
     
     /*static func getFollowers() -> Set<User> {
@@ -40,6 +41,4 @@ class FollowersMock: FollowersGetProtocol {
         }
         return followedBySet
     }*/
-    
-    
-}
+
