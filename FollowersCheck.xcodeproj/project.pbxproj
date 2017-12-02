@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D206B131FD2C28E0001F9A0 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D206B121FD2C28E0001F9A0 /* Network.swift */; };
 		4D41CFC51FC9952800BAF702 /* FollowersCaching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D41CFC41FC9952800BAF702 /* FollowersCaching.swift */; };
 		940A9F381FB5A0A300308576 /* FollowerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940A9F371FB5A0A300308576 /* FollowerMock.swift */; };
 		944DEE771FB59D4700F076FC /* FollowersGetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944DEE761FB59D4700F076FC /* FollowersGetProtocol.swift */; };
@@ -16,7 +17,6 @@
 		94CBDAAE1F9E068C00F9369E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94CBDAAD1F9E068C00F9369E /* Assets.xcassets */; };
 		94CBDAB11F9E068C00F9369E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94CBDAAF1F9E068C00F9369E /* LaunchScreen.storyboard */; };
 		94F036881FA0BDF600010CBF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F036871FA0BDF600010CBF /* LoginViewController.swift */; };
-		94F036911FA0BEFF00010CBF /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F036901FA0BEFF00010CBF /* Network.swift */; };
 		94F036931FA0BFF300010CBF /* InstagramAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F036921FA0BFF300010CBF /* InstagramAPI.swift */; };
 		9CFE916735222923FAFD606A /* Pods_FollowersCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02029442AFF7EF4E67D4B5F5 /* Pods_FollowersCheck.framework */; };
 		AE56651D1FC992B600DFA5A9 /* FollowersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE56651C1FC992B600DFA5A9 /* FollowersTableViewController.swift */; };
@@ -47,6 +47,7 @@
 		02029442AFF7EF4E67D4B5F5 /* Pods_FollowersCheck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FollowersCheck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AF800F4B8578D1AB12FD98E /* Pods-FollowersCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FollowersCheck.release.xcconfig"; path = "Pods/Target Support Files/Pods-FollowersCheck/Pods-FollowersCheck.release.xcconfig"; sourceTree = "<group>"; };
 		3FDD632E253584FFC64EA256 /* Pods-FollowersCheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FollowersCheck.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FollowersCheck/Pods-FollowersCheck.debug.xcconfig"; sourceTree = "<group>"; };
+		4D206B121FD2C28E0001F9A0 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		4D41CFC41FC9952800BAF702 /* FollowersCaching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCaching.swift; sourceTree = "<group>"; };
 		940A9F371FB5A0A300308576 /* FollowerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerMock.swift; sourceTree = "<group>"; };
 		944DEE761FB59D4700F076FC /* FollowersGetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersGetProtocol.swift; sourceTree = "<group>"; };
@@ -58,7 +59,6 @@
 		94CBDAB01F9E068C00F9369E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94CBDAB21F9E068C00F9369E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94F036871FA0BDF600010CBF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		94F036901FA0BEFF00010CBF /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		94F036921FA0BFF300010CBF /* InstagramAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramAPI.swift; sourceTree = "<group>"; };
 		AE56651C1FC992B600DFA5A9 /* FollowersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersTableViewController.swift; sourceTree = "<group>"; };
 		AE5665251FC9931B00DFA5A9 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 				AE93FCCB1FC0500B000E837D /* FollowerListViewController.swift */,
 				AE93FCCD1FC050DD000E837D /* UserViewCell.swift */,
 				94F036921FA0BFF300010CBF /* InstagramAPI.swift */,
-				94F036901FA0BEFF00010CBF /* Network.swift */,
+				4D206B121FD2C28E0001F9A0 /* Network.swift */,
 				940A9F371FB5A0A300308576 /* FollowerMock.swift */,
 				AE93FCCF1FC062E4000E837D /* FollowerDownloader.swift */,
 				944DEE761FB59D4700F076FC /* FollowersGetProtocol.swift */,
@@ -287,11 +287,11 @@
 				4D41CFC51FC9952800BAF702 /* FollowersCaching.swift in Sources */,
 				AE5665271FC9931B00DFA5A9 /* ProfileTableViewCell.swift in Sources */,
 				AE56651D1FC992B600DFA5A9 /* FollowersTableViewController.swift in Sources */,
+				4D206B131FD2C28E0001F9A0 /* Network.swift in Sources */,
 				AEBBAD451FC5B23E00C31379 /* SectionTableViewCell.swift in Sources */,
 				94F036881FA0BDF600010CBF /* LoginViewController.swift in Sources */,
 				94F036931FA0BFF300010CBF /* InstagramAPI.swift in Sources */,
 				94CBDAA91F9E068C00F9369E /* ViewController.swift in Sources */,
-				94F036911FA0BEFF00010CBF /* Network.swift in Sources */,
 				947429AF1FCDD01F0065194C /* MainViewController.swift in Sources */,
 				AE93FCD01FC062E4000E837D /* FollowerDownloader.swift in Sources */,
 				AE93FCCE1FC050DD000E837D /* UserViewCell.swift in Sources */,
