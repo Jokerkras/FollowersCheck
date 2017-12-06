@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController{
+class LoginViewController: UIViewController, UIGestureRecognizerDelegate {
     
     
     @IBOutlet weak var webView: UIWebView!
@@ -16,6 +16,9 @@ class LoginViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
         webView.delegate = self
         unSignedRequest()
     }

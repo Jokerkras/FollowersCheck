@@ -49,7 +49,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         self.activityIndicator.hidesWhenStopped = true
         view.addSubview(activityIndicator)
-        buttonRefreshPressed(self)
+        getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String) in
+            InstagramAPI.INSTAGRAM_PROFILE_IMAGE = pi
+            InstagramAPI.INSTAGRAM_USERNAME = name
+            self.labelNickname.text = name
+            InstagramAPI.INSTAGRAM_FOLLOWEDBY = fbc
+            self.labelFollowedBy.text = fbc
+            InstagramAPI.INSTAGRAM_FOLLOWS = fc
+            self.labelFollows.text = fc
+            InstagramAPI.INSTAGRAM_USER_ID = id
+            self.requestEnded()
+            self.buttonRefreshPressed(self)
+        })
     }
     
     public var currentOngoingEventCount = 4
@@ -147,7 +158,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     
     @IBAction func buttonRefreshPressed(_ sender: Any) {
-        currentFinishedEventCount = 0
+        self.currentFinishedEventCount = 0
         self.activityIndicator.startAnimating()
         self.tableView1.allowsSelection = false
         DispatchQueue.global().sync{
