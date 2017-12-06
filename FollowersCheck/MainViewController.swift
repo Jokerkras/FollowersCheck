@@ -31,8 +31,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var profileImage: UIImageView!
     
-    var odd = UIColor(red: 194/255, green: 239/255, blue: 249/255, alpha: 1.0)
-    var notodd = UIColor(red: 227/255, green: 247/255, blue: 252/255, alpha: 1.0)
+    var notodd = UIColor(red: 246/255, green: 238/255, blue: 205/255, alpha: 1.0)
+    var odd = UIColor(red: 255/255, green: 249/255, blue: 233/255, alpha: 1.0)
     var followers =  [User]()
     var followedBy =  [User]()
     
@@ -80,7 +80,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad(){
         tableView1.delegate = self
         tableView1.dataSource = self
-        tableView1.backgroundColor = UIColor(red: 130/255, green: 227/255, blue: 245/255, alpha: 1.0)
         
         arrayOfCells = [cellData(cell:1, nickname: "Подписались", countFollowers: 10, profileImage: #imageLiteral(resourceName: "plus")),
                         cellData(cell:2, nickname: "Отписались", countFollowers: 120, profileImage: #imageLiteral(resourceName: "cancel")),

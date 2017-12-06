@@ -27,14 +27,14 @@ class ProfileTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         self.layer.borderWidth = 1
-        self.backgroundColor = UIColor(red: 194/255, green: 239/255, blue: 249/255, alpha: 1.0)
+        self.backgroundColor = UIColor(red: 255/255, green: 249/255, blue: 233/255, alpha: 1.0)
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         profileImage.clipsToBounds = true
         profileImage.layer.borderWidth = 1.0
         profileImage.layer.borderColor = UIColor.white.cgColor
         
         
-        followButton.backgroundColor = UIColor(red: 150/255, green: 227/255, blue: 255/255, alpha: 1.0)
+        followButton.backgroundColor = UIColor(red: 246/255, green: 232/255, blue: 195/255, alpha: 1.0)
         followButton.layer.borderWidth = 1
         followButton.layer.cornerRadius = followButton.frame.size.width / 5
         // Initialization code
