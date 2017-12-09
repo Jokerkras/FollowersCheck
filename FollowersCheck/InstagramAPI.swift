@@ -21,7 +21,7 @@ struct InstagramAPI{
     static let INSTAGRAM_CLIENT_ID = "8c5ebaf981ab4036a1b794a541a448d6"
     static let INSTAGRAM_CLIENTSERCRET = "73602c4fe6684011b27427552120f283"
     static let INSTAGRAM_REDIRECT_URI = "http://localhost"
-    static var INSTAGRAM_ACCESS_TOKEN = "access_token"
+    static var INSTAGRAM_ACCESS_TOKEN = ""
     static let INSTAGRAM_SCOPE = "basic+follower_list+relationships"
     static var INSTAGRAM_USER = 0
 }

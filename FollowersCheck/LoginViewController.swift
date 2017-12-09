@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UIGestureRecognizerDelegate {
+class LoginViewController: UIViewController {
     
     
     @IBOutlet weak var webView: UIWebView!
@@ -16,15 +16,8 @@ class LoginViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.isHidden = true
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
         webView.delegate = self
         unSignedRequest()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        navigationController?.setToolbarHidden(false, animated: true)
     }
     
     func unSignedRequest () {

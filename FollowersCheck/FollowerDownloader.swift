@@ -11,8 +11,9 @@ class FollowerDownloader: FollowersGetProtocol {
 
     func getFollowers(_ block: @escaping ([User]) -> Void) {
         
-        Alamofire.request(String(format: "%@?query_id=%@&id=%@&first=%@", arguments: [InstagramAPI.INSTAGRAM_GRAPHQL,InstagramAPI.INSTAGRAM_FOLLOWS_QUERY, InstagramAPI.INSTAGRAM_USER_ID,InstagramAPI.INSTAGRAM_FOLLOWS]), method: .get).responseJSON{ response in
+        Alamofire.request(String(format: "%@?query_id=%@&id=%@&first=%@", arguments: [InstagramAPI.INSTAGRAM_GRAPHQL,InstagramAPI.INSTAGRAM_FOLLOWS_QUERY, InstagramAPI.INSTAGRAM_USER_ID, InstagramAPI.INSTAGRAM_FOLLOWS]), method: .get).responseJSON{ response in
                 var Users:[User] = []
+            
                 if let responseJSON = response.result.value as? [String: AnyObject] {
                     let data = responseJSON["data"] as! [String: AnyObject]
                     let user = data["user"] as! [String: AnyObject]

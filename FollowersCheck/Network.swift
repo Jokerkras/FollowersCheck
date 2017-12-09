@@ -4,7 +4,6 @@ import UIKit
 func logout(_ block: @escaping () -> Void) {
     Alamofire.request(InstagramAPI.INSTAGRAM_LOGOUT).response{
         response in
-        print(response)
         block()
     }
 }
