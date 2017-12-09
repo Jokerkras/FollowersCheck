@@ -14,6 +14,12 @@ func getPicture(url: String, block: @escaping (Data) -> Void) {
     }
 }
 
+func unFollow() {
+    Alamofire.request(String(format: "https://www.instagram.com/web/friendships/%@/unfollow/1120232439", arguments: [InstagramAPI.INSTAGRAM_USER_ID])).response { response in
+        print(response)
+    }
+}
+
 func getParams(block: @escaping ( String, String, String, String, String) -> Void) {
     Alamofire.request(String(format: "%@self/?access_token=%@", arguments: [InstagramAPI.INSTAGRAM_APIURl,InstagramAPI.INSTAGRAM_ACCESS_TOKEN]), method: .get).responseJSON{ response in
         if let responseJSON = response.result.value as? [String: AnyObject]{

@@ -4,9 +4,10 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,35 +22,32 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HOV-uL-x8Y">
-                        <rect key="frame" x="15" y="15" width="70" height="70"/>
+                        <rect key="frame" x="8" y="11.5" width="75" height="75"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="70" id="3Hw-gp-y9B"/>
-                            <constraint firstAttribute="height" constant="70" id="rmv-Fi-bXv"/>
+                            <constraint firstAttribute="width" secondItem="HOV-uL-x8Y" secondAttribute="height" multiplier="1:1" id="cae-dp-akw"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZd-NZ-esO">
-                        <rect key="frame" x="288.5" y="40" width="61.5" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                        <rect key="frame" x="303" y="40" width="44" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHZ-x2-z7S">
-                        <rect key="frame" x="112" y="39" width="150" height="21"/>
+                        <rect key="frame" x="103" y="40" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="sZd-NZ-esO" secondAttribute="trailing" constant="17" id="1fN-Sf-Xu5"/>
-                    <constraint firstItem="uHZ-x2-z7S" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="7bY-Re-6KB"/>
-                    <constraint firstAttribute="bottom" secondItem="HOV-uL-x8Y" secondAttribute="bottom" constant="15" id="C07-nG-Gsr"/>
-                    <constraint firstItem="HOV-uL-x8Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Gq5-Kz-dNR"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="sZd-NZ-esO" secondAttribute="bottom" constant="30.5" id="Hyo-fA-mug"/>
-                    <constraint firstItem="uHZ-x2-z7S" firstAttribute="centerY" secondItem="HOV-uL-x8Y" secondAttribute="centerY" id="NDi-cE-v9m"/>
-                    <constraint firstItem="uHZ-x2-z7S" firstAttribute="leading" secondItem="HOV-uL-x8Y" secondAttribute="trailing" constant="27" id="gXJ-Rl-5B8"/>
-                    <constraint firstItem="sZd-NZ-esO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="32" id="ld5-j2-vu9"/>
-                    <constraint firstItem="HOV-uL-x8Y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="s3P-Xo-ti1"/>
+                    <constraint firstItem="sZd-NZ-esO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2s7-gB-yT3"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="sZd-NZ-esO" secondAttribute="trailing" constant="20" id="HfA-T6-f4M"/>
+                    <constraint firstItem="HOV-uL-x8Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="dvm-25-9lH"/>
+                    <constraint firstItem="uHZ-x2-z7S" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gWB-8X-H25"/>
+                    <constraint firstItem="uHZ-x2-z7S" firstAttribute="leading" secondItem="HOV-uL-x8Y" secondAttribute="trailing" constant="20" id="j2L-dQ-VOv"/>
+                    <constraint firstItem="HOV-uL-x8Y" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.2" id="jQa-qu-1Lt"/>
+                    <constraint firstItem="HOV-uL-x8Y" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="oSN-5Z-IjM"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

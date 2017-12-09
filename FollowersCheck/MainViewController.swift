@@ -24,6 +24,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var arrayOfCells = [cellData]()
     let userTool = FollowerDownloader()
     
+    @IBOutlet var myView: UIView!
     @IBOutlet weak var labelNickname: UILabel!
     @IBOutlet weak var labelFollows: UILabel!
     @IBOutlet weak var labelFollowedBy: UILabel!
@@ -94,7 +95,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                         cellData(cell:3, nickname: "Игнорируете Вы", countFollowers: 130, profileImage: #imageLiteral(resourceName: "happy")),
                         cellData(cell:4, nickname: "Игнорируют Вас", countFollowers: 140, profileImage: #imageLiteral(resourceName: "sad"))]
         
-        profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
+        profileImage.layer.cornerRadius = myView.layer.frame.width * 0.4 / 2
         profileImage.clipsToBounds = true
         profileImage.layer.borderWidth = 3.0
         profileImage.layer.borderColor = UIColor.black.cgColor
@@ -204,6 +205,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.tableView1.reloadData()
                 self.requestEnded()
             })
+            unFollow()
             lastFollowers = FollowersCaching.getLastFollowers()
             lastFollowedBy = FollowersCaching.getLastFollowedBy()
         }

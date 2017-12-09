@@ -5,7 +5,9 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,39 +22,43 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mbg-Op-b7m">
-                        <rect key="frame" x="3" y="3" width="67" height="63.5"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jb-zY-3fo">
-                        <rect key="frame" x="94" y="24.5" width="158" height="21"/>
+                        <rect key="frame" x="3" y="5" width="60" height="60"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="158" id="ez1-89-sXT"/>
+                            <constraint firstAttribute="width" secondItem="Mbg-Op-b7m" secondAttribute="height" multiplier="1:1" id="J1s-YF-hkO"/>
                         </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZGb-bc-jA6">
+                        <rect key="frame" x="316" y="20" width="41" height="30"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4T-Sn-R94">
+                                <rect key="frame" x="0.0" y="0.0" width="41" height="30"/>
+                                <state key="normal" title="follow">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jb-zY-3fo">
+                        <rect key="frame" x="73" y="25.5" width="74" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4T-Sn-R94">
-                        <rect key="frame" x="314" y="20" width="46" height="30"/>
-                        <state key="normal" title="follow">
-                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="0jb-zY-3fo" firstAttribute="centerY" secondItem="Mbg-Op-b7m" secondAttribute="centerY" id="8ye-py-29r"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="g4T-Sn-R94" secondAttribute="trailing" constant="7" id="Hd4-Tg-q6B"/>
-                    <constraint firstItem="0jb-zY-3fo" firstAttribute="leading" secondItem="Mbg-Op-b7m" secondAttribute="trailing" constant="24" id="Jxz-Iv-dKe"/>
-                    <constraint firstAttribute="bottom" secondItem="Mbg-Op-b7m" secondAttribute="bottom" constant="3" id="NaN-tq-NZY"/>
-                    <constraint firstItem="0jb-zY-3fo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="94" id="Nbi-Pf-of9"/>
-                    <constraint firstItem="g4T-Sn-R94" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="TaJ-AE-Sqk"/>
-                    <constraint firstItem="Mbg-Op-b7m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="aeS-nT-C2k"/>
-                    <constraint firstItem="g4T-Sn-R94" firstAttribute="leading" secondItem="0jb-zY-3fo" secondAttribute="trailing" constant="62" id="vkR-Mn-BKF"/>
-                    <constraint firstItem="Mbg-Op-b7m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="why-02-eFf"/>
+                    <constraint firstItem="0jb-zY-3fo" firstAttribute="centerY" secondItem="Mbg-Op-b7m" secondAttribute="centerY" id="5Ko-uC-jG6"/>
+                    <constraint firstItem="Mbg-Op-b7m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-5" id="IYw-KA-jSX"/>
+                    <constraint firstItem="Mbg-Op-b7m" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.16" id="Qzq-aV-d7C"/>
+                    <constraint firstItem="Mbg-Op-b7m" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Uhp-8K-Ect"/>
+                    <constraint firstItem="0jb-zY-3fo" firstAttribute="leading" secondItem="Mbg-Op-b7m" secondAttribute="trailing" constant="10" id="ilC-eo-kqY"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ZGb-bc-jA6" secondAttribute="trailing" constant="10" id="kS6-Ux-zkN"/>
+                    <constraint firstItem="ZGb-bc-jA6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="yuZ-3K-uWp"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="followButton" destination="g4T-Sn-R94" id="sEw-l6-xKb"/>
+                <outlet property="forR" destination="H2p-sc-9uM" id="qRZ-FF-Ux2"/>
                 <outlet property="nickname" destination="0jb-zY-3fo" id="wmw-M9-8zF"/>
                 <outlet property="profileImage" destination="Mbg-Op-b7m" id="yqv-g4-OR9"/>
             </connections>
