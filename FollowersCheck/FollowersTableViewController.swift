@@ -15,6 +15,19 @@ class FollowersTableViewController: UITableViewController {
     
     var users = Set<User>()
     
+    @IBOutlet var tableView1: UITableView!
+    
+    override func viewDidLoad() {
+        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(dismiss(fromGesture:)))
+        tableView1.addGestureRecognizer(gesture)
+    }
+    
+    @objc func dismiss(fromGesture gesture: UISwipeGestureRecognizer) {
+        if gesture.direction == UISwipeGestureRecognizerDirection.right {
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
     }

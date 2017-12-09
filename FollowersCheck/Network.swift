@@ -4,13 +4,12 @@ import UIKit
 func logout(_ block: @escaping () -> Void) {
     Alamofire.request(InstagramAPI.INSTAGRAM_LOGOUT).response{
         response in
-        print(response)
         block()
     }
 }
 
-func getPicture(block: @escaping (Data) -> Void) {
-    Alamofire.request(InstagramAPI.INSTAGRAM_PROFILE_IMAGE, method: .get).response{ response in
+func getPicture(url: String, block: @escaping (Data) -> Void) {
+    Alamofire.request(url, method: .get).response{ response in
         block(response.data!)
     }
 }

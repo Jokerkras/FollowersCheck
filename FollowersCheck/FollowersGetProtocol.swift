@@ -8,13 +8,15 @@
 
 class User: Hashable, Codable{
     var username = ""
+    var profileImage = ""
     
     var hashValue: Int {
         return username.hashValue
     }
     
-    init( username: String){
+    init( username: String, profileImage: String){
         self.username = username
+        self.profileImage = profileImage
     }
     
     static func ==(lhs: User, rhs: User) -> Bool {

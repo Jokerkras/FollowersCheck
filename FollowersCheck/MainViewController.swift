@@ -18,8 +18,9 @@ struct cellData{
 
 
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var arrayOfCells = [cellData]()
     let userTool = FollowerDownloader()
 
@@ -30,10 +31,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var profileImage: UIImageView!
     
-    var odd = UIColor(red: 194/255, green: 239/255, blue: 249/255, alpha: 1.0)
-    var notodd = UIColor(red: 227/255, green: 247/255, blue: 252/255, alpha: 1.0)
-    var followers =  Set<User>()
-    var followedBy =  Set<User>()
+    var notodd = UIColor(red: 246/255, green: 238/255, blue: 205/255, alpha: 1.0)
+    var odd = UIColor(red: 255/255, green: 249/255, blue: 233/255, alpha: 1.0)
+    var followers =  [User]()
+    var followedBy =  [User]()
+    var lastFollowers =  [User]()
+    var lastFollowedBy =  [User]()
+    var i = 1
     
     var setToSegue = Set<User>()
     
@@ -46,40 +50,48 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setToolbarHidden(true, animated: false)
+        if InstagramAPI.INSTAGRAM_ACCESS_TOKEN == ""{
+            out()
+        }
+        else {
+            self.activityIndicator.hidesWhenStopped = true
+            view.addSubview(activityIndicator)
+            getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String) in
+                InstagramAPI.INSTAGRAM_PROFILE_IMAGE = pi
+                InstagramAPI.INSTAGRAM_USERNAME = name
+                self.labelNickname.text = name
+                InstagramAPI.INSTAGRAM_FOLLOWEDBY = fbc
+                self.labelFollowedBy.text = InstagramAPI.INSTAGRAM_FOLLOWEDBY
+                InstagramAPI.INSTAGRAM_FOLLOWS = fc
+                self.labelFollows.text = InstagramAPI.INSTAGRAM_FOLLOWS
+                InstagramAPI.INSTAGRAM_USER_ID = id
+                self.requestEnded()
+                self.buttonRefreshPressed(self)
+            })
+        }
+    }
+    
+    public var currentOngoingEventCount = 4
+    public var currentFinishedEventCount = 0
+    func requestEnded() {
+        currentFinishedEventCount += 1
+        if currentFinishedEventCount == currentOngoingEventCount {
+            activityIndicator.stopAnimating()
+            self.tableView1.allowsSelection = true
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         
-        getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String) in
-            InstagramAPI.INSTAGRAM_PROFILE_IMAGE = pi
-            InstagramAPI.INSTAGRAM_USERNAME = name
-            self.labelNickname.text = name
-            InstagramAPI.INSTAGRAM_FOLLOWEDBY = fbc
-            self.labelFollowedBy.text = fbc
-            InstagramAPI.INSTAGRAM_FOLLOWS = fc
-            self.labelFollows.text = fc
-            InstagramAPI.INSTAGRAM_USER_ID = id
-        })
-        
-        getPicture(block: {(data: Data) in
-            self.profileImage.image = UIImage(data: data)
-        })
-        
-        userTool.getFollowers({(usrs: [User]) in
-            for us in usrs{
-                self.followers.insert(us)
-            }
-        })
-        userTool.getFollowedByYou({(usrs: [User]) in
-            for us in usrs{
-                self.followedBy.insert(us)
-            }
-        })
     }
     
     override func viewDidLoad(){
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
         
         tableView1.delegate = self
         tableView1.dataSource = self
-        tableView1.backgroundColor = UIColor(red: 130/255, green: 227/255, blue: 245/255, alpha: 1.0)
         
         arrayOfCells = [cellData(cell:1, nickname: "Подписались", countFollowers: 10, profileImage: #imageLiteral(resourceName: "plus")),
                         cellData(cell:2, nickname: "Отписались", countFollowers: 120, profileImage: #imageLiteral(resourceName: "cancel")),
@@ -90,10 +102,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         profileImage.clipsToBounds = true
         profileImage.layer.borderWidth = 3.0
         profileImage.layer.borderColor = UIColor.black.cgColor
+        self.activityIndicator.startAnimating()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return tableView1.bounds.height / 4
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayOfCells.count
@@ -106,48 +119,97 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let fol = Set<User>(self.followers)
+        let foldb = Set<User>(self.followedBy)
+        let lfoldb = Set<User>(self.lastFollowedBy)
+        
         if indexPath.row == 0 {
-            setToSegue = self.followers
+            setToSegue = foldb.subtracting(lfoldb)
         } else if indexPath.row == 1 {
-            setToSegue = self.followedBy
+            setToSegue = lfoldb.subtracting(foldb)
         } else if indexPath.row == 2 {
-            setToSegue = self.followedBy.subtracting(self.followers)
+            setToSegue = foldb.subtracting(fol)
         } else {
-            setToSegue = self.followers.subtracting(self.followedBy)
+            setToSegue = fol.subtracting(foldb)
         }
         self .performSegue(withIdentifier: "showFollowers", sender: self)
         return indexPath
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let fol = Set<User>(self.followers)
+        let foldb = Set<User>(self.followedBy)
+        let lfoldb = Set<User>(self.lastFollowedBy)
+        
         if arrayOfCells[indexPath.row].cell == 1 {
             let cell = Bundle.main.loadNibNamed("SectionTableViewCell", owner: self, options: nil)?.first as! SectionTableViewCell
             cell.configure(profileImage: arrayOfCells[indexPath.row].profileImage,
                            nickname: arrayOfCells[indexPath.row].nickname,
-                           countfollowers: arrayOfCells[indexPath.row].countFollowers)
+                           countfollowers: foldb.subtracting(lfoldb).count)
             cell.backgroundColor = notodd
             return cell
         }else if arrayOfCells[indexPath.row].cell == 2 {
             let cell = Bundle.main.loadNibNamed("SectionTableViewCell", owner: self, options: nil)?.first as! SectionTableViewCell
             cell.configure(profileImage: arrayOfCells[indexPath.row].profileImage,
                            nickname: arrayOfCells[indexPath.row].nickname,
-                           countfollowers: arrayOfCells[indexPath.row].countFollowers)
+                           countfollowers: lfoldb.subtracting(foldb).count)
             cell.backgroundColor = odd
             return cell
         }else if arrayOfCells[indexPath.row].cell == 3 {
             let cell = Bundle.main.loadNibNamed("SectionTableViewCell", owner: self, options: nil)?.first as! SectionTableViewCell
             cell.configure(profileImage: arrayOfCells[indexPath.row].profileImage,
                            nickname: arrayOfCells[indexPath.row].nickname,
-                           countfollowers: self.followers.subtracting(self.followedBy).count)
+                           countfollowers: foldb.subtracting(fol).count)
             cell.backgroundColor = notodd
             return cell
         }else {
             let cell = Bundle.main.loadNibNamed("SectionTableViewCell", owner: self, options: nil)?.first as! SectionTableViewCell
             cell.configure(profileImage: arrayOfCells[indexPath.row].profileImage,
                            nickname: arrayOfCells[indexPath.row].nickname,
-                           countfollowers: self.followedBy.subtracting(self.followers).count)
+                           countfollowers: fol.subtracting(foldb).count)
             cell.backgroundColor = odd
             return cell
+        }
+    }
+
+    
+    @IBAction func buttonRefreshPressed(_ sender: Any) {
+        self.currentFinishedEventCount = 0
+        self.activityIndicator.startAnimating()
+        self.tableView1.allowsSelection = false
+        DispatchQueue.global().sync{
+            getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String) in
+                InstagramAPI.INSTAGRAM_PROFILE_IMAGE = pi
+                InstagramAPI.INSTAGRAM_USERNAME = name
+                self.labelNickname.text = name
+                InstagramAPI.INSTAGRAM_FOLLOWEDBY = fbc
+                self.labelFollowedBy.text = fbc
+                InstagramAPI.INSTAGRAM_FOLLOWS = fc
+                self.labelFollows.text = fc
+                InstagramAPI.INSTAGRAM_USER_ID = id
+                self.requestEnded()
+            })
+
+            getPicture(url: InstagramAPI.INSTAGRAM_PROFILE_IMAGE, block: {(data: Data) in
+                self.profileImage.image = UIImage(data: data)
+                self.requestEnded()
+            })
+
+            userTool.getFollowers({(usrs: [User]) in
+                self.followers = [User](usrs)
+                FollowersCaching.setFollowersToCache(users: self.followers)
+                self.tableView1.reloadData()
+                self.requestEnded()
+            })
+
+            userTool.getFollowedByYou({(usrs: [User]) in
+                self.followedBy = [User](usrs)
+                FollowersCaching.setFollowedByToCache(users: self.followedBy)
+                self.tableView1.reloadData()
+                self.requestEnded()
+            })
+            lastFollowers = FollowersCaching.getLastFollowers()
+            lastFollowedBy = FollowersCaching.getLastFollowedBy()
         }
     }
 }

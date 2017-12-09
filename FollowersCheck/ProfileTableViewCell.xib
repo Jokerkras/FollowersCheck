@@ -20,10 +20,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mbg-Op-b7m">
-                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                        <rect key="frame" x="3" y="3" width="67" height="63.5"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nickname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jb-zY-3fo">
-                        <rect key="frame" x="94" y="25" width="158" height="21"/>
+                        <rect key="frame" x="94" y="24.5" width="158" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="158" id="ez1-89-sXT"/>
                         </constraints>
@@ -42,12 +42,12 @@
                     <constraint firstItem="0jb-zY-3fo" firstAttribute="centerY" secondItem="Mbg-Op-b7m" secondAttribute="centerY" id="8ye-py-29r"/>
                     <constraint firstAttribute="trailingMargin" secondItem="g4T-Sn-R94" secondAttribute="trailing" constant="7" id="Hd4-Tg-q6B"/>
                     <constraint firstItem="0jb-zY-3fo" firstAttribute="leading" secondItem="Mbg-Op-b7m" secondAttribute="trailing" constant="24" id="Jxz-Iv-dKe"/>
+                    <constraint firstAttribute="bottom" secondItem="Mbg-Op-b7m" secondAttribute="bottom" constant="3" id="NaN-tq-NZY"/>
                     <constraint firstItem="0jb-zY-3fo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="94" id="Nbi-Pf-of9"/>
                     <constraint firstItem="g4T-Sn-R94" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="TaJ-AE-Sqk"/>
-                    <constraint firstItem="Mbg-Op-b7m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="WH9-2h-UgM"/>
-                    <constraint firstAttribute="bottom" secondItem="Mbg-Op-b7m" secondAttribute="bottom" id="Xdc-zD-BPO"/>
-                    <constraint firstItem="Mbg-Op-b7m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="l0U-81-hj8"/>
+                    <constraint firstItem="Mbg-Op-b7m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="aeS-nT-C2k"/>
                     <constraint firstItem="g4T-Sn-R94" firstAttribute="leading" secondItem="0jb-zY-3fo" secondAttribute="trailing" constant="62" id="vkR-Mn-BKF"/>
+                    <constraint firstItem="Mbg-Op-b7m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="why-02-eFf"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
