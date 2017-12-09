@@ -8,4 +8,5 @@ target 'FollowersCheck' do
   # Pods for FollowersCheck
   pod 'Cache'
   pod 'Alamofire'
+  pod 'SwiftCharts', '0.6'
 end

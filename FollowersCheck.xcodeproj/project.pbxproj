@@ -8,6 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		4D206B131FD2C28E0001F9A0 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D206B121FD2C28E0001F9A0 /* Network.swift */; };
+		4D32D5611FDA8818000A8EE3 /* icon152.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D32D5541FDA880D000A8EE3 /* icon152.png */; };
+		4D32D5621FDA8818000A8EE3 /* icon60.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D32D5551FDA880E000A8EE3 /* icon60.png */; };
+		4D32D5631FDA8818000A8EE3 /* icon76.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D32D5561FDA880F000A8EE3 /* icon76.png */; };
+		4D32D5641FDA8818000A8EE3 /* icon29.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D32D5571FDA8810000A8EE3 /* icon29.png */; };
+		4D32D5651FDA8818000A8EE3 /* icon20.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D32D5581FDA8811000A8EE3 /* icon20.png */; };
+		4D32D5661FDA8818000A8EE3 /* icon40.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D32D5591FDA8812000A8EE3 /* icon40.png */; };
+		4D32D5671FDA8818000A8EE3 /* icon87.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D32D55A1FDA8812000A8EE3 /* icon87.png */; };
+		4D32D5681FDA8818000A8EE3 /* icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D32D55B1FDA8813000A8EE3 /* icon1024.png */; };
+		4D32D5691FDA8818000A8EE3 /* icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D32D55C1FDA8815000A8EE3 /* icon80.png */; };
+		4D32D56A1FDA8818000A8EE3 /* icon180.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D32D55D1FDA8816000A8EE3 /* icon180.png */; };
+		4D32D56B1FDA8818000A8EE3 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D32D55E1FDA8816000A8EE3 /* icon120.png */; };
+		4D32D56C1FDA8818000A8EE3 /* icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D32D55F1FDA8817000A8EE3 /* icon58.png */; };
+		4D32D56D1FDA8818000A8EE3 /* icon167.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D32D5601FDA8818000A8EE3 /* icon167.png */; };
 		4D41CFC51FC9952800BAF702 /* FollowersCaching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D41CFC41FC9952800BAF702 /* FollowersCaching.swift */; };
 		940A9F381FB5A0A300308576 /* FollowerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940A9F371FB5A0A300308576 /* FollowerMock.swift */; };
 		944DEE771FB59D4700F076FC /* FollowersGetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944DEE761FB59D4700F076FC /* FollowersGetProtocol.swift */; };
@@ -48,6 +61,19 @@
 		1AF800F4B8578D1AB12FD98E /* Pods-FollowersCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FollowersCheck.release.xcconfig"; path = "Pods/Target Support Files/Pods-FollowersCheck/Pods-FollowersCheck.release.xcconfig"; sourceTree = "<group>"; };
 		3FDD632E253584FFC64EA256 /* Pods-FollowersCheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FollowersCheck.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FollowersCheck/Pods-FollowersCheck.debug.xcconfig"; sourceTree = "<group>"; };
 		4D206B121FD2C28E0001F9A0 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		4D32D5541FDA880D000A8EE3 /* icon152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon152.png; sourceTree = "<group>"; };
+		4D32D5551FDA880E000A8EE3 /* icon60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon60.png; sourceTree = "<group>"; };
+		4D32D5561FDA880F000A8EE3 /* icon76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon76.png; sourceTree = "<group>"; };
+		4D32D5571FDA8810000A8EE3 /* icon29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon29.png; sourceTree = "<group>"; };
+		4D32D5581FDA8811000A8EE3 /* icon20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon20.png; sourceTree = "<group>"; };
+		4D32D5591FDA8812000A8EE3 /* icon40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon40.png; sourceTree = "<group>"; };
+		4D32D55A1FDA8812000A8EE3 /* icon87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon87.png; sourceTree = "<group>"; };
+		4D32D55B1FDA8813000A8EE3 /* icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1024.png; sourceTree = "<group>"; };
+		4D32D55C1FDA8815000A8EE3 /* icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80.png; sourceTree = "<group>"; };
+		4D32D55D1FDA8816000A8EE3 /* icon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon180.png; sourceTree = "<group>"; };
+		4D32D55E1FDA8816000A8EE3 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
+		4D32D55F1FDA8817000A8EE3 /* icon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon58.png; sourceTree = "<group>"; };
+		4D32D5601FDA8818000A8EE3 /* icon167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon167.png; sourceTree = "<group>"; };
 		4D41CFC41FC9952800BAF702 /* FollowersCaching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCaching.swift; sourceTree = "<group>"; };
 		940A9F371FB5A0A300308576 /* FollowerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerMock.swift; sourceTree = "<group>"; };
 		944DEE761FB59D4700F076FC /* FollowersGetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersGetProtocol.swift; sourceTree = "<group>"; };
@@ -100,6 +126,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4D32D5531FDA862B000A8EE3 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				4D32D5581FDA8811000A8EE3 /* icon20.png */,
+				4D32D5571FDA8810000A8EE3 /* icon29.png */,
+				4D32D5591FDA8812000A8EE3 /* icon40.png */,
+				4D32D55F1FDA8817000A8EE3 /* icon58.png */,
+				4D32D5551FDA880E000A8EE3 /* icon60.png */,
+				4D32D5561FDA880F000A8EE3 /* icon76.png */,
+				4D32D55C1FDA8815000A8EE3 /* icon80.png */,
+				4D32D55A1FDA8812000A8EE3 /* icon87.png */,
+				4D32D55E1FDA8816000A8EE3 /* icon120.png */,
+				4D32D5541FDA880D000A8EE3 /* icon152.png */,
+				4D32D5601FDA8818000A8EE3 /* icon167.png */,
+				4D32D55D1FDA8816000A8EE3 /* icon180.png */,
+				4D32D55B1FDA8813000A8EE3 /* icon1024.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
 		94CBDA9A1F9E068C00F9369E = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +167,7 @@
 		94CBDAA51F9E068C00F9369E /* FollowersCheck */ = {
 			isa = PBXGroup;
 			children = (
+				4D32D5531FDA862B000A8EE3 /* Icons */,
 				947429AE1FCDD01F0065194C /* MainViewController.swift */,
 				94CBDAA61F9E068C00F9369E /* AppDelegate.swift */,
 				94F036871FA0BDF600010CBF /* LoginViewController.swift */,
@@ -211,11 +258,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D32D5691FDA8818000A8EE3 /* icon80.png in Resources */,
 				AE93FCCA1FC04AF1000E837D /* Main.storyboard in Resources */,
+				4D32D5671FDA8818000A8EE3 /* icon87.png in Resources */,
 				94CBDAB11F9E068C00F9369E /* LaunchScreen.storyboard in Resources */,
 				AE5665281FC9931B00DFA5A9 /* ProfileTableViewCell.xib in Resources */,
+				4D32D5661FDA8818000A8EE3 /* icon40.png in Resources */,
+				4D32D5631FDA8818000A8EE3 /* icon76.png in Resources */,
+				4D32D5651FDA8818000A8EE3 /* icon20.png in Resources */,
+				4D32D56C1FDA8818000A8EE3 /* icon58.png in Resources */,
+				4D32D5621FDA8818000A8EE3 /* icon60.png in Resources */,
 				94CBDAAE1F9E068C00F9369E /* Assets.xcassets in Resources */,
+				4D32D56B1FDA8818000A8EE3 /* icon120.png in Resources */,
+				4D32D5681FDA8818000A8EE3 /* icon1024.png in Resources */,
 				AEBBAD461FC5B23E00C31379 /* SectionTableViewCell.xib in Resources */,
+				4D32D5611FDA8818000A8EE3 /* icon152.png in Resources */,
+				4D32D5641FDA8818000A8EE3 /* icon29.png in Resources */,
+				4D32D56A1FDA8818000A8EE3 /* icon180.png in Resources */,
+				4D32D56D1FDA8818000A8EE3 /* icon167.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,11 +309,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-FollowersCheck/Pods-FollowersCheck-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftCharts/SwiftCharts.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCharts.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

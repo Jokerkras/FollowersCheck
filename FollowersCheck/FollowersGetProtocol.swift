@@ -6,7 +6,7 @@
 //  Copyright © 2017 PMUGroup. All rights reserved.
 //
 
-class User: Hashable, Codable {
+class User: Hashable, Codable{
     var username = ""
     var profileImage = ""
     
