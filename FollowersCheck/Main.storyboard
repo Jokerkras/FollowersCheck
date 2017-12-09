@@ -132,7 +132,7 @@
                                 <color key="sectionIndexBackgroundColor" red="0.95074969530105591" green="0.89411764705882346" blue="0.75382965803146362" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.97647058823529409" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.95686274509803915" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="BOG-cb-Jkd" firstAttribute="top" secondItem="Lc5-on-7p0" secondAttribute="bottom" constant="8" id="0Zr-oX-hvH"/>
                             <constraint firstItem="BOG-cb-Jkd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PY1-vH-QE6" secondAttribute="trailing" constant="8" id="4AX-KX-RAa"/>

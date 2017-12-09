@@ -23,7 +23,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var arrayOfCells = [cellData]()
     let userTool = FollowerDownloader()
-
+    
     @IBOutlet weak var labelNickname: UILabel!
     @IBOutlet weak var labelFollows: UILabel!
     @IBOutlet weak var labelFollowedBy: UILabel!
@@ -31,8 +31,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var profileImage: UIImageView!
     
-    var notodd = UIColor(red: 246/255, green: 238/255, blue: 205/255, alpha: 1.0)
-    var odd = UIColor(red: 255/255, green: 249/255, blue: 233/255, alpha: 1.0)
+    var odd = UIColor(red: 244/255, green: 255/255, blue: 255/255, alpha: 1.0)
+    var notodd = UIColor(red: 179/255, green: 218/255, blue: 242/255, alpha: 1.0)
     var followers =  [User]()
     var followedBy =  [User]()
     var lastFollowers =  [User]()
@@ -79,10 +79,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             activityIndicator.stopAnimating()
             self.tableView1.allowsSelection = true
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
     }
     
     override func viewDidLoad(){
@@ -171,7 +167,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             return cell
         }
     }
-
+    
     
     @IBAction func buttonRefreshPressed(_ sender: Any) {
         self.currentFinishedEventCount = 0
@@ -189,19 +185,19 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 InstagramAPI.INSTAGRAM_USER_ID = id
                 self.requestEnded()
             })
-
+            
             getPicture(url: InstagramAPI.INSTAGRAM_PROFILE_IMAGE, block: {(data: Data) in
                 self.profileImage.image = UIImage(data: data)
                 self.requestEnded()
             })
-
+            
             userTool.getFollowers({(usrs: [User]) in
                 self.followers = [User](usrs)
                 FollowersCaching.setFollowersToCache(users: self.followers)
                 self.tableView1.reloadData()
                 self.requestEnded()
             })
-
+            
             userTool.getFollowedByYou({(usrs: [User]) in
                 self.followedBy = [User](usrs)
                 FollowersCaching.setFollowedByToCache(users: self.followedBy)
@@ -213,3 +209,4 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
 }
+

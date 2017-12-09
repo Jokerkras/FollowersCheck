@@ -18,8 +18,6 @@ class SectionTableViewCell: UITableViewCell {
         self.nickname.text = nickname
         self.profileImage.image = profileImage
         self.countfollowers.text = String(countfollowers)
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.black.cgColor
     }
     
 }
