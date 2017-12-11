@@ -55,7 +55,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             out()
         }
         else {
-            self.activityIndicator.hidesWhenStopped = true
             view.addSubview(activityIndicator)
             getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String) in
                 InstagramAPI.INSTAGRAM_PROFILE_IMAGE = pi
@@ -70,6 +69,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.buttonRefreshPressed(self)
             })
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        self.activityIndicator.center = self.profileImage.center
+        self.activityIndicator.color = UIColor.gray
+        
     }
     
     public var currentOngoingEventCount = 4
@@ -112,6 +120,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  let destination = segue.destination as? FollowersTableViewController {
             destination.users = self.setToSegue
+            destination.navTitle.title = arrayOfCells[i].nickname
         }
     }
     
@@ -120,11 +129,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let foldb = Set<User>(self.followedBy)
         let lfoldb = Set<User>(self.lastFollowedBy)
         
-        if indexPath.row == 0 {
+        i = indexPath.row
+        if i == 0 {
             setToSegue = foldb.subtracting(lfoldb)
-        } else if indexPath.row == 1 {
+        } else if i == 1 {
             setToSegue = lfoldb.subtracting(foldb)
-        } else if indexPath.row == 2 {
+        } else if i == 2 {
             setToSegue = foldb.subtracting(fol)
         } else {
             setToSegue = fol.subtracting(foldb)
@@ -172,7 +182,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func buttonRefreshPressed(_ sender: Any) {
         self.currentFinishedEventCount = 0
+        self.profileImage.image = #imageLiteral(resourceName: "user")
         self.activityIndicator.startAnimating()
+        self.labelFollows.text = "..."
+        self.labelFollowedBy.text = "..."
         self.tableView1.allowsSelection = false
         DispatchQueue.global().sync{
             getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String) in
@@ -187,11 +200,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.requestEnded()
             })
             
-            getPicture(url: InstagramAPI.INSTAGRAM_PROFILE_IMAGE, block: {(data: Data) in
-                self.profileImage.image = UIImage(data: data)
-                self.requestEnded()
-            })
-            
             userTool.getFollowers({(usrs: [User]) in
                 self.followers = [User](usrs)
                 FollowersCaching.setFollowersToCache(users: self.followers)
@@ -203,6 +211,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.followedBy = [User](usrs)
                 FollowersCaching.setFollowedByToCache(users: self.followedBy)
                 self.tableView1.reloadData()
+                self.requestEnded()
+            })
+            
+            getPicture(url: InstagramAPI.INSTAGRAM_PROFILE_IMAGE, block: {(data: Data) in
+                self.profileImage.image = UIImage(data: data)
                 self.requestEnded()
             })
             unFollow()

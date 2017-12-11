@@ -116,9 +116,6 @@
                                     <action selector="buttonRefreshPressed:" destination="Hbs-1g-KJn" eventType="touchUpInside" id="dDP-BY-hUM"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="eMQ-at-2aQ">
-                                <rect key="frame" x="150" y="274" width="20" height="20"/>
-                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1y-qo-Art" customClass="SectionTableView" customModule="FollowersCheck" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="284" width="320" height="284"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -140,6 +137,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="eMQ-at-2aQ">
+                                <rect key="frame" x="150" y="182" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.95686274509803915" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -153,11 +154,9 @@
                             <constraint firstItem="A1y-qo-Art" firstAttribute="height" secondItem="7rs-ar-nve" secondAttribute="height" multiplier="0.5" id="Txy-lV-vQb"/>
                             <constraint firstItem="7bb-Mc-dfg" firstAttribute="centerY" secondItem="PY1-vH-QE6" secondAttribute="centerY" id="UqF-XT-Jat"/>
                             <constraint firstItem="aVl-h1-FFs" firstAttribute="top" secondItem="sYT-Pt-I4U" secondAttribute="bottom" id="Vev-R0-zUT"/>
-                            <constraint firstItem="eMQ-at-2aQ" firstAttribute="centerX" secondItem="7rs-ar-nve" secondAttribute="centerX" id="W6G-zD-rxq"/>
                             <constraint firstItem="PY1-vH-QE6" firstAttribute="centerX" secondItem="7rs-ar-nve" secondAttribute="centerX" id="WAe-aL-PUG"/>
                             <constraint firstItem="Bjr-L5-56L" firstAttribute="trailing" secondItem="7rs-ar-nve" secondAttribute="trailingMargin" id="XKs-pi-DM9"/>
                             <constraint firstItem="PY1-vH-QE6" firstAttribute="leading" secondItem="7bb-Mc-dfg" secondAttribute="trailing" constant="15" id="adG-Mf-0Sw"/>
-                            <constraint firstItem="eMQ-at-2aQ" firstAttribute="centerY" secondItem="7rs-ar-nve" secondAttribute="centerY" id="bGF-It-xPt"/>
                             <constraint firstItem="BOG-cb-Jkd" firstAttribute="centerY" secondItem="PY1-vH-QE6" secondAttribute="centerY" id="bN5-5J-zOC"/>
                             <constraint firstItem="PY1-vH-QE6" firstAttribute="top" secondItem="7rs-ar-nve" secondAttribute="top" constant="97" id="cQt-Mw-BDB"/>
                             <constraint firstItem="aVl-h1-FFs" firstAttribute="leading" secondItem="7rs-ar-nve" secondAttribute="leadingMargin" id="hHo-Ef-jYh"/>
@@ -184,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Do1-YT-YqG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="948" y="41.829085457271368"/>
+            <point key="canvasLocation" x="946.875" y="41.197183098591552"/>
         </scene>
         <!--Followers Table View Controller-->
         <scene sceneID="aP1-uA-1g5">
@@ -202,6 +201,7 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="PCt-4A-MLs"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="navTitle" destination="PCt-4A-MLs" id="P9F-ga-Q3t"/>
                         <outlet property="tableView1" destination="UDb-iD-Pg8" id="Ncg-7i-Hbh"/>
                     </connections>
                 </tableViewController>

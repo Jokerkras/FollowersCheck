@@ -19,7 +19,7 @@ class FollowersCaching {
     static let USER       = "User"
     static let STATISTIC  = "Statistic"
     
-    static let DATE_FORMAT = "dd.MM.yyyy"
+   // static let DATE_FORMAT = "dd.MM.yyyy hh-mm"
     static let MAX_RECORDS_COUNT = 5;
     static let FORMATTER  = DateFormatter()
 
@@ -51,7 +51,7 @@ class FollowersCaching {
     
     static func setAllStatisticToCache() {
         let date = Date()
-        FORMATTER.dateFormat = DATE_FORMAT
+      //  FORMATTER.dateFormat = DATE_FORMAT
         let dateStr = FORMATTER.string(from: date)
         
         var dates = Array<String>()
@@ -124,7 +124,7 @@ class FollowersCaching {
     
     static private func setUsersToCache(forKey key: String, users: Array<User>) {
         let date = Date()
-        FORMATTER.dateFormat = DATE_FORMAT
+    //    FORMATTER.dateFormat = DATE_FORMAT
         let dateStr = FORMATTER.string(from: date)
         
         var dates = Array<String>()
@@ -153,6 +153,10 @@ class FollowersCaching {
         let key = InstagramAPI.INSTAGRAM_USER_ID + SEPARATOR + FOLLOWEDBY
         
         setUsersToCache(forKey: key, users: users)
+    }
+    
+    static func clearCache() {
+        try!storage.removeAll()
     }
     
     static private func getLastUsers(forKey key: String) -> Array<User> {
