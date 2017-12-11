@@ -18,8 +18,10 @@ class ProfileTableViewCell: UITableViewCell {
     func configure(user: User) {
         self.nickname.text = user.username
         self.profileImage.image = #imageLiteral(resourceName: "user")
-        getPicture(url: user.profileImage, block: {(data: Data) in
-            self.profileImage.image = UIImage(data: data)
+        getPicture(url: user.profileImage, block: {(data: Data?, er: Error?) in
+            if er == nil {
+                self.profileImage.image = UIImage(data: data!)
+            }
         })
     }
     
