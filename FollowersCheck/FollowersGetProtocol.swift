@@ -25,6 +25,6 @@ class User: Hashable, Codable{
 }
 
 protocol  FollowersGetProtocol {
-    func getFollowers(_ block: @escaping ([User]) -> Void)
-    func getFollowedByYou(_ block: @escaping ([User]) -> Void)
+    func getFollowers(_ block: @escaping ([User], Error?) -> Void)
+    func getFollowedByYou(_ block: @escaping ([User], Error?) -> Void)
 }

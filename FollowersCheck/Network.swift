@@ -8,9 +8,13 @@ func logout(_ block: @escaping () -> Void) {
     }
 }
 
-func getPicture(url: String, block: @escaping (Data) -> Void) {
+func getPicture(url: String, block: @escaping (Data?, Error?) -> Void) {
     Alamofire.request(url, method: .get).response{ response in
-        block(response.data!)
+        if response.error != nil {
+            block(nil , response.error)
+            return
+        }
+        block(response.data, nil)
     }
 }
 
@@ -20,12 +24,16 @@ func unFollow() {
     }
 }
 
-func getParams(block: @escaping ( String, String, String, String, String) -> Void) {
+func getParams(block: @escaping ( String, String, String, String, String, Error?) -> Void) {
     Alamofire.request(String(format: "%@self/?access_token=%@", arguments: [InstagramAPI.INSTAGRAM_APIURl,InstagramAPI.INSTAGRAM_ACCESS_TOKEN]), method: .get).responseJSON{ response in
+        guard response.result.isSuccess else {
+            block("","","","","", response.error)
+            return
+        }
         if let responseJSON = response.result.value as? [String: AnyObject]{
             let data = responseJSON["data"] as! [String: AnyObject]
             let counts = data["counts"] as! [String : Int64]
-            block(data["username"] as! String, data["id"] as! String, String(counts["follows"]!),String(counts["followed_by"]!), data["profile_picture"] as! String)
+            block(data["username"] as! String, data["id"] as! String, String(counts["follows"]!),String(counts["followed_by"]!), data["profile_picture"] as! String, nil)
         }
     }
 }

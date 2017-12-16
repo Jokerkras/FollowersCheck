@@ -32,6 +32,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     let userTool = FollowerDownloader()
     var odd = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0)
     var notodd = UIColor(red: 217/255, green: 217/255, blue: 217/255, alpha: 1.0)
+    let alert = UIAlertController(title: "Ошибка", message: "Не удалось обновить списки", preferredStyle: UIAlertControllerStyle.alert)
+
     var followers =  [User]()
     var followedBy =  [User]()
     var lastFollowers =  [User]()
@@ -52,17 +54,22 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             out()
         }
         else {
+            alert.addAction(UIAlertAction(title: "ОК", style: UIAlertActionStyle.default, handler: nil))
+            self.activityIndicator.hidesWhenStopped = true
             view.addSubview(activityIndicator)
-            getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String) in
-                InstagramAPI.INSTAGRAM_PROFILE_IMAGE = pi
-                InstagramAPI.INSTAGRAM_USERNAME = name
-                self.labelNickname.text = name
-                InstagramAPI.INSTAGRAM_FOLLOWEDBY = fbc
-                self.labelFollowedBy.text = InstagramAPI.INSTAGRAM_FOLLOWEDBY
-                InstagramAPI.INSTAGRAM_FOLLOWS = fc
-                self.labelFollows.text = InstagramAPI.INSTAGRAM_FOLLOWS
-                InstagramAPI.INSTAGRAM_USER_ID = id
-                self.requestEnded()
+            getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String, er: Error?) in
+                if er == nil {
+                    InstagramAPI.INSTAGRAM_PROFILE_IMAGE = pi
+                    InstagramAPI.INSTAGRAM_USERNAME = name
+                    self.labelNickname.text = name
+                    InstagramAPI.INSTAGRAM_FOLLOWEDBY = fbc
+                    self.labelFollowedBy.text = InstagramAPI.INSTAGRAM_FOLLOWEDBY
+                    InstagramAPI.INSTAGRAM_FOLLOWS = fc
+                    self.labelFollows.text = InstagramAPI.INSTAGRAM_FOLLOWS
+                    InstagramAPI.INSTAGRAM_USER_ID = id
+                } else {
+                    self.goodEnd = false
+                }
                 self.buttonRefreshPressed(self)
             })
         }
@@ -79,10 +86,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     public var currentOngoingEventCount = 4
     public var currentFinishedEventCount = 0
+    public var goodEnd = true
     func requestEnded() {
         currentFinishedEventCount += 1
         if currentFinishedEventCount == currentOngoingEventCount {
             activityIndicator.stopAnimating()
+            if !self.goodEnd {
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                lastFollowers = FollowersCaching.getLastFollowers()
+                lastFollowedBy = FollowersCaching.getLastFollowedBy()
+            }
+            self.goodEnd = true
             self.tableView1.allowsSelection = true
         }
     }
@@ -185,41 +200,52 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.labelFollows.text = "..."
         self.labelFollowedBy.text = "..."
         self.tableView1.allowsSelection = false
-        DispatchQueue.global().sync{
-            getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String) in
-                InstagramAPI.INSTAGRAM_PROFILE_IMAGE = pi
-                InstagramAPI.INSTAGRAM_USERNAME = name
-                self.labelNickname.text = name
-                InstagramAPI.INSTAGRAM_FOLLOWEDBY = fbc
-                self.labelFollowedBy.text = fbc
-                InstagramAPI.INSTAGRAM_FOLLOWS = fc
-                self.labelFollows.text = fc
-                InstagramAPI.INSTAGRAM_USER_ID = id
+        getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String, er: Error?) in
+                if er == nil {
+                    InstagramAPI.INSTAGRAM_PROFILE_IMAGE = pi
+                    InstagramAPI.INSTAGRAM_USERNAME = name
+                    self.labelNickname.text = name
+                    InstagramAPI.INSTAGRAM_FOLLOWEDBY = fbc
+                    self.labelFollowedBy.text = fbc
+                    InstagramAPI.INSTAGRAM_FOLLOWS = fc
+                    self.labelFollows.text = fc
+                    InstagramAPI.INSTAGRAM_USER_ID = id
+                } else {
+                    self.goodEnd = false
+                }
                 self.requestEnded()
             })
+        
+        getPicture(url: InstagramAPI.INSTAGRAM_PROFILE_IMAGE, block: {(data: Data?, er: Error?) in
+            if er == nil {
+                self.profileImage.image = UIImage(data: data!)
+            } else {
+                self.goodEnd = false
+            }
+            self.requestEnded()
+        })
             
-            userTool.getFollowers({(usrs: [User]) in
+        userTool.getFollowers({(usrs: [User], er: Error?) in
+            if er == nil {
                 self.followers = [User](usrs)
                 FollowersCaching.setFollowersToCache(users: self.followers)
                 self.tableView1.reloadData()
-                self.requestEnded()
-            })
+            } else {
+                self.goodEnd = false
+            }
+            self.requestEnded()
+        })
             
-            userTool.getFollowedByYou({(usrs: [User]) in
-                self.followedBy = [User](usrs)
-                FollowersCaching.setFollowedByToCache(users: self.followedBy)
-                self.tableView1.reloadData()
+        userTool.getFollowedByYou({(usrs: [User], er: Error?) in
+                if er == nil {
+                    self.followedBy = [User](usrs)
+                    FollowersCaching.setFollowedByToCache(users: self.followedBy)
+                    self.tableView1.reloadData()
+                } else {
+                    self.goodEnd = false
+                }
                 self.requestEnded()
             })
-            
-            getPicture(url: InstagramAPI.INSTAGRAM_PROFILE_IMAGE, block: {(data: Data) in
-                self.profileImage.image = UIImage(data: data)
-                self.requestEnded()
-            })
-            unFollow()
-            lastFollowers = FollowersCaching.getLastFollowers()
-            lastFollowedBy = FollowersCaching.getLastFollowedBy()
         }
-    }
 }
 
