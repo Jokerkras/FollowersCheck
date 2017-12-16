@@ -47,4 +47,5 @@ extension LoginViewController: UIWebViewDelegate{
     func handleAuth(authToken: String) {
         InstagramAPI.INSTAGRAM_ACCESS_TOKEN = authToken
     }
+
 }

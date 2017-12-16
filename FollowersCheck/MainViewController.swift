@@ -32,7 +32,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var profileImage: UIImageView!
     
-    let alert = UIAlertController(title: "Ошибка", message: "Не удалось обновить списки", preferredStyle: UIAlertControllerStyle.alert)
+    var alert = UIAlertController(title: "Ошибка", message: "Не удалось обновить списки", preferredStyle: UIAlertControllerStyle.alert)
 
     var odd = UIColor(red: 244/255, green: 255/255, blue: 255/255, alpha: 1.0)
     var notodd = UIColor(red: 179/255, green: 218/255, blue: 242/255, alpha: 1.0)
@@ -49,17 +49,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func out() {
+        FollowersCaching.removeLastUserFromCache()
         self .performSegue(withIdentifier: "segueLogout", sender: self)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if InstagramAPI.INSTAGRAM_ACCESS_TOKEN == ""{
-            out()
-        }
-        else {
-            alert.addAction(UIAlertAction(title: "ОК", style: UIAlertActionStyle.default, handler: nil))
-            self.activityIndicator.hidesWhenStopped = true
-            view.addSubview(activityIndicator)
+        let user = FollowersCaching.getLastUserFromCache()
+        if InstagramAPI.INSTAGRAM_ACCESS_TOKEN != "" && InstagramAPI.INSTAGRAM_USERNAME == "" {
             getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String, er: Error?) in
                 if er == nil {
                     InstagramAPI.INSTAGRAM_PROFILE_IMAGE = pi
@@ -70,15 +69,35 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                     InstagramAPI.INSTAGRAM_FOLLOWS = fc
                     self.labelFollows.text = InstagramAPI.INSTAGRAM_FOLLOWS
                     InstagramAPI.INSTAGRAM_USER_ID = id
-                } else {
-                    self.goodEnd = false
                 }
                 self.buttonRefreshPressed(self)
             })
+        } else {
+            if user.count == 0 {
+                out()
+            }
+            else {
+                alert = UIAlertController(title: "Ошибка", message: "Не удалось обновить списки", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "ОК", style: UIAlertActionStyle.default, handler: nil))
+                self.activityIndicator.hidesWhenStopped = true
+                view.addSubview(activityIndicator)
+                InstagramAPI.INSTAGRAM_USER_ID = user[0]
+                InstagramAPI.INSTAGRAM_USERNAME = user[1]
+                InstagramAPI.INSTAGRAM_PROFILE_IMAGE = user[2]
+                
+                followers = FollowersCaching.getLastFollowers()
+                followedBy = FollowersCaching.getLastFollowedBy()
+                
+                self.labelNickname.text = user[1]
+                InstagramAPI.INSTAGRAM_FOLLOWEDBY = String(followedBy.count)
+                self.labelFollowedBy.text = String(followedBy.count)
+                InstagramAPI.INSTAGRAM_FOLLOWS = String(followers.count)
+                self.labelFollows.text = String(followers.count)
+            }
         }
     }
     
-    public var currentOngoingEventCount = 4
+    public var currentOngoingEventCount = 3
     public var currentFinishedEventCount = 0
     public var goodEnd = true
     func requestEnded() {
@@ -94,6 +113,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.goodEnd = true
             self.tableView1.allowsSelection = true
         }
+        currentOngoingEventCount = 3
+        FollowersCaching.setCurrentUserToCache()
     }
     
     override func viewDidLoad(){
@@ -113,7 +134,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         profileImage.clipsToBounds = true
         profileImage.layer.borderWidth = 3.0
         profileImage.layer.borderColor = UIColor.black.cgColor
-        self.activityIndicator.startAnimating()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -156,7 +176,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             let cell = Bundle.main.loadNibNamed("SectionTableViewCell", owner: self, options: nil)?.first as! SectionTableViewCell
             cell.configure(profileImage: arrayOfCells[indexPath.row].profileImage,
                            nickname: arrayOfCells[indexPath.row].nickname,
-                           countfollowers: foldb.subtracting(lfoldb).count)
+                           countfollowers: foldb.subtracting(lfoldb).count == foldb.count ? 0 : foldb.subtracting(lfoldb).count)
             cell.backgroundColor = notodd
             return cell
         }else if arrayOfCells[indexPath.row].cell == 2 {
@@ -188,22 +208,24 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.currentFinishedEventCount = 0
         self.activityIndicator.startAnimating()
         self.tableView1.allowsSelection = false
-        getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String, er: Error?) in
-                if er == nil {
-                    InstagramAPI.INSTAGRAM_PROFILE_IMAGE = pi
-                    InstagramAPI.INSTAGRAM_USERNAME = name
-                    self.labelNickname.text = name
-                    InstagramAPI.INSTAGRAM_FOLLOWEDBY = fbc
-                    self.labelFollowedBy.text = fbc
-                    InstagramAPI.INSTAGRAM_FOLLOWS = fc
-                    self.labelFollows.text = fc
-                    InstagramAPI.INSTAGRAM_USER_ID = id
-                } else {
-                    self.goodEnd = false
-                }
-                self.requestEnded()
+        if InstagramAPI.INSTAGRAM_ACCESS_TOKEN != "" {
+            currentOngoingEventCount = 4
+            getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String, er: Error?) in
+                    if er == nil {
+                        InstagramAPI.INSTAGRAM_PROFILE_IMAGE = pi
+                        InstagramAPI.INSTAGRAM_USERNAME = name
+                        self.labelNickname.text = name
+                        InstagramAPI.INSTAGRAM_FOLLOWEDBY = fbc
+                        self.labelFollowedBy.text = fbc
+                        InstagramAPI.INSTAGRAM_FOLLOWS = fc
+                        self.labelFollows.text = fc
+                        InstagramAPI.INSTAGRAM_USER_ID = id
+                    } else {
+                        self.goodEnd = false
+                    }
+                    self.requestEnded()
             })
-            
+        }
         getPicture(url: InstagramAPI.INSTAGRAM_PROFILE_IMAGE, block: {(data: Data?, er: Error?) in
             if er == nil {
                 self.profileImage.image = UIImage(data: data!)
@@ -212,7 +234,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             self.requestEnded()
         })
-            
+        
         userTool.getFollowers({(usrs: [User], er: Error?) in
             if er == nil {
                 self.followers = [User](usrs)
@@ -223,17 +245,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             self.requestEnded()
         })
-            
+        
         userTool.getFollowedByYou({(usrs: [User], er: Error?) in
-                if er == nil {
-                    self.followedBy = [User](usrs)
-                    FollowersCaching.setFollowedByToCache(users: self.followedBy)
-                    self.tableView1.reloadData()
-                } else {
-                    self.goodEnd = false
-                }
-                self.requestEnded()
-            })
-        }
+            if er == nil {
+                self.followedBy = [User](usrs)
+                FollowersCaching.setFollowedByToCache(users: self.followedBy)
+                self.tableView1.reloadData()
+            } else {
+                self.goodEnd = false
+            }
+            self.requestEnded()
+        })
+    }
 }
 

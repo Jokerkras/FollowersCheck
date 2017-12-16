@@ -34,10 +34,11 @@ class FollowersCaching {
         var userForCache = Array<String>()
         userForCache.append(InstagramAPI.INSTAGRAM_USER_ID)
         userForCache.append(InstagramAPI.INSTAGRAM_USERNAME)
+        userForCache.append(InstagramAPI.INSTAGRAM_PROFILE_IMAGE)
         try! storage.setObject(userForCache, forKey: USER)
     }
     
-    //result[0] - userId, result[1] - userName
+    //result[0] - userId, result[1] - userName, result[2] - profile image
     static func getLastUserFromCache() -> Array<String> {
         var lastUser = Array<String>()
         
