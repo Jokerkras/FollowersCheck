@@ -21,25 +21,22 @@ struct cellData{
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    var arrayOfCells = [cellData]()
-    let userTool = FollowerDownloader()
-    
     @IBOutlet var myView: UIView!
     @IBOutlet weak var labelNickname: UILabel!
     @IBOutlet weak var labelFollows: UILabel!
     @IBOutlet weak var labelFollowedBy: UILabel!
     @IBOutlet weak var tableView1: UITableView!
-    
     @IBOutlet weak var profileImage: UIImageView!
     
-    var odd = UIColor(red: 244/255, green: 255/255, blue: 255/255, alpha: 1.0)
-    var notodd = UIColor(red: 179/255, green: 218/255, blue: 242/255, alpha: 1.0)
+    var arrayOfCells = [cellData]()
+    let userTool = FollowerDownloader()
+    var odd = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0)
+    var notodd = UIColor(red: 217/255, green: 217/255, blue: 217/255, alpha: 1.0)
     var followers =  [User]()
     var followedBy =  [User]()
     var lastFollowers =  [User]()
     var lastFollowedBy =  [User]()
     var i = 1
-    
     var setToSegue = Set<User>()
     
     @IBAction func buttonLogoutPressed(_ sender: Any){
@@ -76,7 +73,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.activityIndicator.hidesWhenStopped = true
         self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
         self.activityIndicator.center = self.profileImage.center
-        self.activityIndicator.color = UIColor.gray
+        self.activityIndicator.color = UIColor.black
         
     }
     
@@ -105,7 +102,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         profileImage.layer.cornerRadius = myView.layer.frame.width * 0.4 / 2
         profileImage.clipsToBounds = true
-        profileImage.layer.borderWidth = 3.0
+        profileImage.layer.borderWidth = 1.0
         profileImage.layer.borderColor = UIColor.black.cgColor
         self.activityIndicator.startAnimating()
     }
@@ -113,6 +110,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView1.bounds.height / 4
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayOfCells.count
     }
