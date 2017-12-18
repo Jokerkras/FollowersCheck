@@ -14,18 +14,25 @@ import UIKit
 class FollowersTableViewController: UITableViewController {
     
     var users = Set<User>()
+    var navTitleText: String = ""
     
+    @IBOutlet weak var navTitle: UINavigationItem!
     @IBOutlet var tableView1: UITableView!
     
     override func viewDidLoad() {
         let gesture = UISwipeGestureRecognizer(target: self, action: #selector(dismiss(fromGesture:)))
         tableView1.addGestureRecognizer(gesture)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     @objc func dismiss(fromGesture gesture: UISwipeGestureRecognizer) {
         if gesture.direction == UISwipeGestureRecognizerDirection.right {
             dismiss(animated: true, completion: nil)
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

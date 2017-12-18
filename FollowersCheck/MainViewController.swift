@@ -155,6 +155,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if  let destination = segue.destination as? FollowersTableViewController {
             destination.users = self.setToSegue
+            destination.navTitle.title = arrayOfCells[i].nickname
         }
     }
     
@@ -163,11 +164,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let foldb = Set<User>(self.followedBy)
         let lfoldb = Set<User>(self.lastFollowedBy)
         
-        if indexPath.row == 0 {
+        i = indexPath.row
+        if i == 0 {
             setToSegue = foldb.subtracting(lfoldb)
-        } else if indexPath.row == 1 {
+        } else if i == 1 {
             setToSegue = lfoldb.subtracting(foldb)
-        } else if indexPath.row == 2 {
+        } else if i == 2 {
             setToSegue = foldb.subtracting(fol)
         } else {
             setToSegue = fol.subtracting(foldb)
