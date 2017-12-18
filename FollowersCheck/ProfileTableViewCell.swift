@@ -10,8 +10,6 @@ import UIKit
 
 class ProfileTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var followButton: UIButton!
-    
     @IBOutlet weak var nickname: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     
@@ -28,25 +26,17 @@ class ProfileTableViewCell: UITableViewCell {
     @IBOutlet weak var forR: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+    
         self.layer.borderWidth = 1
         self.backgroundColor = UIColor(red: 244/255, green: 255/255, blue: 255/255, alpha: 1.0)
         profileImage.layer.cornerRadius = forR.layer.frame.size.height / 2
         profileImage.clipsToBounds = true
         profileImage.layer.borderWidth = 1.0
         profileImage.layer.borderColor = UIColor.white.cgColor
-        
-        
-        followButton.backgroundColor = UIColor(red: 179/255, green: 218/255, blue: 242/255, alpha: 1.0)
-        followButton.layer.borderWidth = 1
-        followButton.layer.cornerRadius = followButton.frame.size.width / 5
-        // Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
 }

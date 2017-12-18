@@ -13,11 +13,12 @@ class SectionTableViewCell: UITableViewCell {
     @IBOutlet weak var nickname: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var countfollowers: UILabel!
+    @IBOutlet weak var circle: UIView!
     
     func configure(profileImage: UIImage, nickname: String, countfollowers: Int) {
         self.nickname.text = nickname
         self.profileImage.image = profileImage
         self.countfollowers.text = String(countfollowers)
+        self.circle.layer.cornerRadius = self.circle.layer.frame.width / 2
     }
-    
 }
