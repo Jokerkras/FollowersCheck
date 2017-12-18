@@ -34,8 +34,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var alert = UIAlertController(title: "Ошибка", message: "Не удалось обновить списки", preferredStyle: UIAlertControllerStyle.alert)
 
-    var odd = UIColor(red: 244/255, green: 255/255, blue: 255/255, alpha: 1.0)
-    var notodd = UIColor(red: 179/255, green: 218/255, blue: 242/255, alpha: 1.0)
+    var odd = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0)
+    var notodd = UIColor(red: 217/255, green: 217/255, blue: 217/255, alpha: 1.0)
     var followers =  [User]()
     var followedBy =  [User]()
     var lastFollowers =  [User]()
@@ -95,6 +95,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.labelFollows.text = String(followers.count)
             }
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        self.activityIndicator.center = self.profileImage.center
+        self.activityIndicator.color = UIColor.black
+        
     }
     
     public var currentOngoingEventCount = 3
