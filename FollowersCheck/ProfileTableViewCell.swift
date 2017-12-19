@@ -29,7 +29,7 @@ class ProfileTableViewCell: UITableViewCell {
     
         self.layer.borderWidth = 1
         self.backgroundColor = UIColor(red: 244/255, green: 255/255, blue: 255/255, alpha: 1.0)
-        profileImage.layer.cornerRadius = forR.layer.frame.size.height / 2
+        profileImage.layer.cornerRadius = profileImage.layer.frame.size.height / 2
         profileImage.clipsToBounds = true
         profileImage.layer.borderWidth = 1.0
         profileImage.layer.borderColor = UIColor.white.cgColor

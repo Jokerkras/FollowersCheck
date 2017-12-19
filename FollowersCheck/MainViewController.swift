@@ -39,6 +39,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var lastFollowers =  [User]()
     var lastFollowedBy =  [User]()
     var i = 1
+    var iP: IndexPath = IndexPath()
     var setToSegue = Set<User>()
     
     @IBAction func buttonLogoutPressed(_ sender: Any){
@@ -54,6 +55,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        tableView1.deselectRow(at: iP, animated: false)
         let user = FollowersCaching.getLastUserFromCache()
         if InstagramAPI.INSTAGRAM_ACCESS_TOKEN != "" && InstagramAPI.INSTAGRAM_USERNAME == "" {
             getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String, er: Error?) in
@@ -123,7 +125,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         FollowersCaching.setCurrentUserToCache()
     }
     
-    override func viewDidLoad(){
+    override func viewDidLoad() {
         navigationController?.navigationBar.isHidden = true
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         navigationController?.interactivePopGestureRecognizer?.delegate = self
@@ -162,6 +164,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let lfoldb = Set<User>(self.lastFollowedBy)
         
         i = indexPath.row
+        iP = indexPath
         if i == 0 {
             setToSegue = foldb.subtracting(lfoldb)
         } else if i == 1 {

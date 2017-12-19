@@ -73,6 +73,7 @@
                 <outlet property="Circle" destination="F8d-vD-00i" id="JuF-qw-zwY"/>
                 <outlet property="circle" destination="F8d-vD-00i" id="bh4-27-tF7"/>
                 <outlet property="countfollowers" destination="sZd-NZ-esO" id="xCs-Vl-zoF"/>
+                <outlet property="myView" destination="H2p-sc-9uM" id="5ks-NL-OhV"/>
                 <outlet property="nickname" destination="uHZ-x2-z7S" id="63O-W2-RVr"/>
                 <outlet property="profileImage" destination="HOV-uL-x8Y" id="dqI-FG-igg"/>
             </connections>

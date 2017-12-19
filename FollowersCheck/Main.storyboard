@@ -237,9 +237,10 @@
     <resources>
         <image name="logout" width="50" height="50"/>
         <image name="synchronize" width="50" height="50"/>
-        <image name="user" width="50" height="50"/>
+        <image name="user" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="88a-gE-EUV"/>
         <segue reference="KIi-fG-IkG"/>
     </inferredMetricsTieBreakers>
 </document>
