@@ -21,6 +21,7 @@ class FollowersCaching {
     
     static let MAX_RECORDS_COUNT = 5;
     static let FORMATTER  = DateFormatter()
+    static let DATE_FORMAT = "mm/dd/yyyy hh:mm:ss.SSS"
 
     static let diskConfig = DiskConfig(name: DISK_NAME,
                                 directory: try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask,
@@ -57,6 +58,7 @@ class FollowersCaching {
     
     static func setAllStatisticToCache() {
         let date = Date()
+        FORMATTER.dateFormat = DATE_FORMAT
         let dateStr = FORMATTER.string(from: date)
         
         var dates = Array<String>()
@@ -129,6 +131,7 @@ class FollowersCaching {
     
     static private func setUsersToCache(forKey key: String, users: Array<User>) {
         let date = Date()
+        FORMATTER.dateFormat = DATE_FORMAT
         let dateStr = FORMATTER.string(from: date)
         
         var dates = Array<String>()
