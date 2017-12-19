@@ -10,9 +10,16 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    var isSuccess: Bool = true
     
     @IBOutlet weak var webView: UIWebView!
     
+    @IBAction func cancelButtonPressed(_ sender: UIButton)
+    {
+        isSuccess = false
+        self.webView.stopLoading()
+        self .performSegue(withIdentifier: "segueToMainView", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,5 +54,4 @@ extension LoginViewController: UIWebViewDelegate{
     func handleAuth(authToken: String) {
         InstagramAPI.INSTAGRAM_ACCESS_TOKEN = authToken
     }
-
 }

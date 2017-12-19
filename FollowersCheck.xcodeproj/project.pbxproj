@@ -22,11 +22,9 @@
 		4D32D56C1FDA8818000A8EE3 /* icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D32D55F1FDA8817000A8EE3 /* icon58.png */; };
 		4D32D56D1FDA8818000A8EE3 /* icon167.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D32D5601FDA8818000A8EE3 /* icon167.png */; };
 		4D41CFC51FC9952800BAF702 /* FollowersCaching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D41CFC41FC9952800BAF702 /* FollowersCaching.swift */; };
-		940A9F381FB5A0A300308576 /* FollowerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940A9F371FB5A0A300308576 /* FollowerMock.swift */; };
 		944DEE771FB59D4700F076FC /* FollowersGetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944DEE761FB59D4700F076FC /* FollowersGetProtocol.swift */; };
 		947429AF1FCDD01F0065194C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947429AE1FCDD01F0065194C /* MainViewController.swift */; };
 		94CBDAA71F9E068C00F9369E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBDAA61F9E068C00F9369E /* AppDelegate.swift */; };
-		94CBDAA91F9E068C00F9369E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CBDAA81F9E068C00F9369E /* ViewController.swift */; };
 		94CBDAAE1F9E068C00F9369E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94CBDAAD1F9E068C00F9369E /* Assets.xcassets */; };
 		94CBDAB11F9E068C00F9369E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94CBDAAF1F9E068C00F9369E /* LaunchScreen.storyboard */; };
 		94F036881FA0BDF600010CBF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F036871FA0BDF600010CBF /* LoginViewController.swift */; };
@@ -36,8 +34,6 @@
 		AE5665271FC9931B00DFA5A9 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5665251FC9931B00DFA5A9 /* ProfileTableViewCell.swift */; };
 		AE5665281FC9931B00DFA5A9 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE5665261FC9931B00DFA5A9 /* ProfileTableViewCell.xib */; };
 		AE93FCCA1FC04AF1000E837D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE93FCC91FC04AF1000E837D /* Main.storyboard */; };
-		AE93FCCC1FC0500B000E837D /* FollowerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93FCCB1FC0500B000E837D /* FollowerListViewController.swift */; };
-		AE93FCCE1FC050DD000E837D /* UserViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93FCCD1FC050DD000E837D /* UserViewCell.swift */; };
 		AE93FCD01FC062E4000E837D /* FollowerDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93FCCF1FC062E4000E837D /* FollowerDownloader.swift */; };
 		AEBBAD451FC5B23E00C31379 /* SectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBBAD431FC5B23E00C31379 /* SectionTableViewCell.swift */; };
 		AEBBAD461FC5B23E00C31379 /* SectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEBBAD441FC5B23E00C31379 /* SectionTableViewCell.xib */; };
@@ -75,12 +71,10 @@
 		4D32D55F1FDA8817000A8EE3 /* icon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon58.png; sourceTree = "<group>"; };
 		4D32D5601FDA8818000A8EE3 /* icon167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon167.png; sourceTree = "<group>"; };
 		4D41CFC41FC9952800BAF702 /* FollowersCaching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCaching.swift; sourceTree = "<group>"; };
-		940A9F371FB5A0A300308576 /* FollowerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerMock.swift; sourceTree = "<group>"; };
 		944DEE761FB59D4700F076FC /* FollowersGetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersGetProtocol.swift; sourceTree = "<group>"; };
 		947429AE1FCDD01F0065194C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		94CBDAA31F9E068C00F9369E /* FollowersCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FollowersCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94CBDAA61F9E068C00F9369E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		94CBDAA81F9E068C00F9369E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		94CBDAAD1F9E068C00F9369E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		94CBDAB01F9E068C00F9369E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94CBDAB21F9E068C00F9369E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,8 +84,6 @@
 		AE5665251FC9931B00DFA5A9 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		AE5665261FC9931B00DFA5A9 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
 		AE93FCC91FC04AF1000E837D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = FollowersCheck/Main.storyboard; sourceTree = SOURCE_ROOT; };
-		AE93FCCB1FC0500B000E837D /* FollowerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListViewController.swift; sourceTree = "<group>"; };
-		AE93FCCD1FC050DD000E837D /* UserViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewCell.swift; sourceTree = "<group>"; };
 		AE93FCCF1FC062E4000E837D /* FollowerDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerDownloader.swift; sourceTree = "<group>"; };
 		AEBBAD431FC5B23E00C31379 /* SectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewCell.swift; sourceTree = "<group>"; };
 		AEBBAD441FC5B23E00C31379 /* SectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionTableViewCell.xib; sourceTree = "<group>"; };
@@ -172,15 +164,11 @@
 				94CBDAA61F9E068C00F9369E /* AppDelegate.swift */,
 				94F036871FA0BDF600010CBF /* LoginViewController.swift */,
 				AE93FCC91FC04AF1000E837D /* Main.storyboard */,
-				AE93FCCB1FC0500B000E837D /* FollowerListViewController.swift */,
-				AE93FCCD1FC050DD000E837D /* UserViewCell.swift */,
 				94F036921FA0BFF300010CBF /* InstagramAPI.swift */,
 				4D206B121FD2C28E0001F9A0 /* Network.swift */,
-				940A9F371FB5A0A300308576 /* FollowerMock.swift */,
 				AE93FCCF1FC062E4000E837D /* FollowerDownloader.swift */,
 				944DEE761FB59D4700F076FC /* FollowersGetProtocol.swift */,
 				4D41CFC41FC9952800BAF702 /* FollowersCaching.swift */,
-				94CBDAA81F9E068C00F9369E /* ViewController.swift */,
 				AE56651C1FC992B600DFA5A9 /* FollowersTableViewController.swift */,
 				94CBDAAD1F9E068C00F9369E /* Assets.xcassets */,
 				94CBDAAF1F9E068C00F9369E /* LaunchScreen.storyboard */,
@@ -344,7 +332,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE93FCCC1FC0500B000E837D /* FollowerListViewController.swift in Sources */,
 				944DEE771FB59D4700F076FC /* FollowersGetProtocol.swift in Sources */,
 				4D41CFC51FC9952800BAF702 /* FollowersCaching.swift in Sources */,
 				AE5665271FC9931B00DFA5A9 /* ProfileTableViewCell.swift in Sources */,
@@ -353,12 +340,9 @@
 				AEBBAD451FC5B23E00C31379 /* SectionTableViewCell.swift in Sources */,
 				94F036881FA0BDF600010CBF /* LoginViewController.swift in Sources */,
 				94F036931FA0BFF300010CBF /* InstagramAPI.swift in Sources */,
-				94CBDAA91F9E068C00F9369E /* ViewController.swift in Sources */,
 				947429AF1FCDD01F0065194C /* MainViewController.swift in Sources */,
 				AE93FCD01FC062E4000E837D /* FollowerDownloader.swift in Sources */,
-				AE93FCCE1FC050DD000E837D /* UserViewCell.swift in Sources */,
 				94CBDAA71F9E068C00F9369E /* AppDelegate.swift in Sources */,
-				940A9F381FB5A0A300308576 /* FollowerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

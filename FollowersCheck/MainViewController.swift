@@ -28,6 +28,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView1: UITableView!
     @IBOutlet weak var profileImage: UIImageView!
     
+    var isAuth: Bool = true
     var arrayOfCells = [cellData]()
     let userTool = FollowerDownloader()
     var alert = UIAlertController(title: "Ошибка", message: "Не удалось обновить списки", preferredStyle: UIAlertControllerStyle.alert)
@@ -226,9 +227,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                         InstagramAPI.INSTAGRAM_USERNAME = name
                         self.labelNickname.text = name
                         InstagramAPI.INSTAGRAM_FOLLOWEDBY = fbc
-                        self.labelFollowedBy.text = fbc
                         InstagramAPI.INSTAGRAM_FOLLOWS = fc
-                        self.labelFollows.text = fc
                         InstagramAPI.INSTAGRAM_USER_ID = id
                     } else {
                         self.goodEnd = false
@@ -250,6 +249,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.followers = [User](usrs)
                 FollowersCaching.setFollowersToCache(users: self.followers)
                 self.tableView1.reloadData()
+                self.labelFollowedBy.text = String(self.followers.count)
             } else {
                 self.goodEnd = false
             }
@@ -261,6 +261,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.followedBy = [User](usrs)
                 FollowersCaching.setFollowedByToCache(users: self.followedBy)
                 self.tableView1.reloadData()
+                self.labelFollows.text = String(self.followedBy.count)
             } else {
                 self.goodEnd = false
             }

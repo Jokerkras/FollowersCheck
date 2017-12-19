@@ -38,7 +38,6 @@ class FollowerDownloader: FollowersGetProtocol {
     func getFollowedByYou(_ block: @escaping ([User], Error?) -> Void) {
         let normalCount = String((Int(InstagramAPI.INSTAGRAM_FOLLOWEDBY)! * 3 / 2) as Int)
         Alamofire.request(String(format: "%@?query_id=%@&id=%@&first=%@", arguments: [InstagramAPI.INSTAGRAM_GRAPHQL,InstagramAPI.INSTAGRAM_FOLLOWEDBY_QUERY, InstagramAPI.INSTAGRAM_USER_ID,normalCount]), method: .get).responseJSON{ response in
-            print(response)
             var Users:[User] = []
             guard response.result.isSuccess else {
                 block([], response.error)
