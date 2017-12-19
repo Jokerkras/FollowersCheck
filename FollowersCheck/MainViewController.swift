@@ -39,6 +39,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var lastFollowers =  [User]()
     var lastFollowedBy =  [User]()
     var i = 1
+    var iP = IndexPath()
     var setToSegue = Set<User>()
     
     @IBAction func buttonLogoutPressed(_ sender: Any){
@@ -53,6 +54,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        tableView1.deselectRow(at: iP, animated: false)
         if InstagramAPI.INSTAGRAM_ACCESS_TOKEN != "" && InstagramAPI.INSTAGRAM_USERNAME == "" {
             getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String, er: Error?) in
                 if er == nil {
@@ -161,6 +163,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let lfoldb = Set<User>(self.lastFollowedBy)
         
         i = indexPath.row
+        iP = indexPath
         if i == 0 {
             setToSegue = foldb.subtracting(lfoldb)
         } else if i == 1 {
@@ -246,7 +249,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.followers = [User](usrs)
                 FollowersCaching.setFollowersToCache(users: self.followers)
                 self.tableView1.reloadData()
-                self.labelFollowedBy.text = String(self.followers.count)
+                self.labelFollows.text = String(self.followers.count)
             } else {
                 self.goodEnd = false
             }
@@ -258,7 +261,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.followedBy = [User](usrs)
                 FollowersCaching.setFollowedByToCache(users: self.followedBy)
                 self.tableView1.reloadData()
-                self.labelFollows.text = String(self.followedBy.count)
+                self.labelFollowedBy.text = String(self.followedBy.count)
             } else {
                 self.goodEnd = false
             }
