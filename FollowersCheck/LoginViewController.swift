@@ -11,13 +11,16 @@ import UIKit
 class LoginViewController: UIViewController {
     
     var isSuccess: Bool = true
+    var authURL = ""
     
     @IBOutlet weak var webView: UIWebView!
     
     @IBAction func cancelButtonPressed(_ sender: UIButton)
     {
-        isSuccess = false
         self.webView.stopLoading()
+        let urlRequest =  URLRequest.init(url: URL.init(string: authURL)!)
+        webView.loadRequest(urlRequest)
+        
         self .performSegue(withIdentifier: "segueToMainView", sender: self)
     }
     override func viewDidLoad() {
@@ -28,7 +31,7 @@ class LoginViewController: UIViewController {
     }
     
     func unSignedRequest () {
-        let authURL = String(format: "%@?client_id=%@&redirect_uri=%@&response_type=token&scope=%@&DEBUG=True", arguments: [InstagramAPI.INSTAGRAM_AUTHURL,InstagramAPI.INSTAGRAM_CLIENT_ID,InstagramAPI.INSTAGRAM_REDIRECT_URI, InstagramAPI.INSTAGRAM_SCOPE ])
+        authURL = String(format: "%@?client_id=%@&redirect_uri=%@&response_type=token&scope=%@&DEBUG=True", arguments: [InstagramAPI.INSTAGRAM_AUTHURL,InstagramAPI.INSTAGRAM_CLIENT_ID,InstagramAPI.INSTAGRAM_REDIRECT_URI, InstagramAPI.INSTAGRAM_SCOPE ])
         let urlRequest =  URLRequest.init(url: URL.init(string: authURL)!)
         webView.loadRequest(urlRequest)
     }
@@ -46,6 +49,7 @@ extension LoginViewController: UIWebViewDelegate{
             let range: Range<String.Index> = requestURLString.range(of: "#access_token=")!
             handleAuth(authToken: requestURLString.substring(from: range.upperBound))
             self.webView.stopLoading()
+            isSuccess = true
             self .performSegue(withIdentifier: "segueToMainView", sender: self)
             return false;
         }

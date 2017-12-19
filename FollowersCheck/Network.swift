@@ -4,6 +4,10 @@ import UIKit
 func logout(_ block: @escaping () -> Void) {
     Alamofire.request(InstagramAPI.INSTAGRAM_LOGOUT).response{
         response in
+        InstagramAPI.INSTAGRAM_USER_ID = ""
+        InstagramAPI.INSTAGRAM_USERNAME = ""
+        InstagramAPI.INSTAGRAM_ACCESS_TOKEN = ""
+        FollowersCaching.removeLastUserFromCache()
         block()
     }
 }

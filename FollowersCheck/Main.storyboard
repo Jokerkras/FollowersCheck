@@ -34,8 +34,8 @@
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maK-h4-WNt">
-                                <rect key="frame" x="132" y="528" width="56" height="30"/>
-                                <state key="normal" title="Отмена"/>
+                                <rect key="frame" x="125" y="528" width="70" height="30"/>
+                                <state key="normal" title="Обновить"/>
                                 <connections>
                                     <action selector="cancelButtonPressed:" destination="aS5-6c-fXw" eventType="touchUpInside" id="nly-qf-jG8"/>
                                 </connections>
@@ -237,7 +237,7 @@
     <resources>
         <image name="logout" width="50" height="50"/>
         <image name="synchronize" width="50" height="50"/>
-        <image name="user" width="50" height="50"/>
+        <image name="user" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="KIi-fG-IkG"/>

@@ -46,7 +46,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func out() {
-        FollowersCaching.removeLastUserFromCache()
         self .performSegue(withIdentifier: "segueLogout", sender: self)
     }
     
@@ -54,7 +53,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let user = FollowersCaching.getLastUserFromCache()
         if InstagramAPI.INSTAGRAM_ACCESS_TOKEN != "" && InstagramAPI.INSTAGRAM_USERNAME == "" {
             getParams(block: {(name: String, id: String, fc: String, fbc: String, pi: String, er: Error?) in
                 if er == nil {
@@ -70,6 +68,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.buttonRefreshPressed(self)
             })
         } else {
+            let user = FollowersCaching.getLastUserFromCache()
             if user.count == 0 {
                 out()
             }
@@ -226,8 +225,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                         InstagramAPI.INSTAGRAM_PROFILE_IMAGE = pi
                         InstagramAPI.INSTAGRAM_USERNAME = name
                         self.labelNickname.text = name
-                        InstagramAPI.INSTAGRAM_FOLLOWEDBY = fbc
-                        InstagramAPI.INSTAGRAM_FOLLOWS = fc
                         InstagramAPI.INSTAGRAM_USER_ID = id
                     } else {
                         self.goodEnd = false
